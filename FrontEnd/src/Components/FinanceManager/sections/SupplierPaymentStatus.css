@@ -1,0 +1,579 @@
+/* SupplierPaymentStatus.css */
+
+/* Main Container */
+#supplier-payment-main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f8f7 0%, #e8f5f3 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Loading State */
+#supplier-payment-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.2rem;
+  color: #004953;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbfa 100%);
+  border-radius: 16px;
+  border: 2px solid #004953;
+  box-shadow: 0 8px 25px rgba(0, 73, 83, 0.15);
+}
+
+/* Error State */
+#supplier-payment-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border: 2px solid #dc2626;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.15);
+}
+
+#error-message {
+  color: #dc2626;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#error-retry-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #004953 0%, #006b7d 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 73, 83, 0.2);
+}
+
+#error-retry-btn:hover {
+  background: linear-gradient(135deg, #006b7d 0%, #004953 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 73, 83, 0.4);
+}
+
+/* Report Controls Section */
+#report-controls-section {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbfa 100%);
+  border: 2px solid #004953;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 8px 25px rgba(0, 73, 83, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#report-controls-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Report Control Groups */
+#report-type-selector,
+#period-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#report-type-label,
+#period-selector-label {
+  font-weight: 600;
+  color: #004953;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+#report-type-dropdown,
+#month-selector-input,
+#year-selector-input {
+  border: 2px solid #004953;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #004953;
+  background: white;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+#report-type-dropdown:focus,
+#month-selector-input:focus,
+#year-selector-input:focus {
+  outline: none;
+  border-color: #006b7d;
+  box-shadow: 0 0 0 3px rgba(0, 73, 83, 0.1);
+}
+
+#year-selector-input {
+  min-width: 80px;
+}
+
+/* Download Buttons Section */
+#download-buttons-section {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#download-pending-report-btn,
+#download-approved-report-btn,
+#download-all-report-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+#download-pending-report-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+}
+
+#download-pending-report-btn:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+}
+
+#download-approved-report-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+#download-approved-report-btn:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+#download-all-report-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+}
+
+#download-all-report-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Table Sections */
+#pending-requests-section,
+#approved-requests-section {
+  margin-bottom: 3rem;
+}
+
+#pending-requests-title,
+#approved-requests-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #004953;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  border-left: 6px solid #006b7d;
+  background: linear-gradient(45deg, #ffffff, #f0f8f7);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 73, 83, 0.1);
+}
+
+/* Empty State Messages */
+#no-pending-requests-message,
+#no-approved-requests-message {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 2rem;
+  background: #f9fafb;
+  border: 2px dashed #9ca3af;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+#no-pending-text,
+#no-approved-text {
+  margin-bottom: 1.5rem;
+}
+
+#refresh-pending-requests-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #004953 0%, #006b7d 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 73, 83, 0.2);
+}
+
+#refresh-pending-requests-btn:hover {
+  background: linear-gradient(135deg, #006b7d 0%, #004953 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 73, 83, 0.4);
+}
+
+/* Table Containers */
+#pending-requests-table-wrapper,
+#approved-requests-table-wrapper {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 73, 83, 0.15);
+  border: 1px solid #e5e7eb;
+}
+
+/* Tables */
+#pending-requests-table,
+#approved-requests-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+/* Table Headers */
+#pending-requests-table-head {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+#approved-requests-table-head {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+#pending-supplier-header,
+#pending-product-header,
+#pending-quantity-header,
+#pending-cost-header,
+#pending-date-header,
+#pending-status-header,
+#pending-actions-header,
+#approved-supplier-header,
+#approved-product-header,
+#approved-quantity-header,
+#approved-cost-header,
+#approved-date-header,
+#approved-status-header {
+  padding: 1rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  border-right: 1px solid #f3f4f6;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: white;
+}
+
+#pending-requests-table-head th {
+  color: #000;
+}
+
+#approved-requests-table-head th {
+  color: white;
+}
+
+/* Table Body */
+#pending-requests-table-body,
+#approved-requests-table-body {
+  background: white;
+}
+
+/* Table Rows */
+#pending-request-row-0,
+#pending-request-row-1,
+#pending-request-row-2,
+#pending-request-row-3,
+#pending-request-row-4,
+#pending-request-row-5,
+#pending-request-row-6,
+#pending-request-row-7,
+#pending-request-row-8,
+#pending-request-row-9,
+#approved-request-row-0,
+#approved-request-row-1,
+#approved-request-row-2,
+#approved-request-row-3,
+#approved-request-row-4,
+#approved-request-row-5,
+#approved-request-row-6,
+#approved-request-row-7,
+#approved-request-row-8,
+#approved-request-row-9 {
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+}
+
+#pending-request-row-0:hover,
+#pending-request-row-1:hover,
+#pending-request-row-2:hover,
+#pending-request-row-3:hover,
+#pending-request-row-4:hover,
+#pending-request-row-5:hover,
+#pending-request-row-6:hover,
+#pending-request-row-7:hover,
+#pending-request-row-8:hover,
+#pending-request-row-9:hover {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 20%);
+  transform: scale(1.005);
+}
+
+#approved-request-row-0:hover,
+#approved-request-row-1:hover,
+#approved-request-row-2:hover,
+#approved-request-row-3:hover,
+#approved-request-row-4:hover,
+#approved-request-row-5:hover,
+#approved-request-row-6:hover,
+#approved-request-row-7:hover,
+#approved-request-row-8:hover,
+#approved-request-row-9:hover {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 20%);
+  transform: scale(1.005);
+}
+
+/* Table Cells */
+#pending-supplier-0, #pending-supplier-1, #pending-supplier-2, #pending-supplier-3, #pending-supplier-4,
+#pending-supplier-5, #pending-supplier-6, #pending-supplier-7, #pending-supplier-8, #pending-supplier-9,
+#pending-product-0, #pending-product-1, #pending-product-2, #pending-product-3, #pending-product-4,
+#pending-product-5, #pending-product-6, #pending-product-7, #pending-product-8, #pending-product-9,
+#pending-quantity-0, #pending-quantity-1, #pending-quantity-2, #pending-quantity-3, #pending-quantity-4,
+#pending-quantity-5, #pending-quantity-6, #pending-quantity-7, #pending-quantity-8, #pending-quantity-9,
+#pending-cost-0, #pending-cost-1, #pending-cost-2, #pending-cost-3, #pending-cost-4,
+#pending-cost-5, #pending-cost-6, #pending-cost-7, #pending-cost-8, #pending-cost-9,
+#pending-date-0, #pending-date-1, #pending-date-2, #pending-date-3, #pending-date-4,
+#pending-date-5, #pending-date-6, #pending-date-7, #pending-date-8, #pending-date-9,
+#pending-status-0, #pending-status-1, #pending-status-2, #pending-status-3, #pending-status-4,
+#pending-status-5, #pending-status-6, #pending-status-7, #pending-status-8, #pending-status-9,
+#pending-actions-0, #pending-actions-1, #pending-actions-2, #pending-actions-3, #pending-actions-4,
+#pending-actions-5, #pending-actions-6, #pending-actions-7, #pending-actions-8, #pending-actions-9,
+#approved-supplier-0, #approved-supplier-1, #approved-supplier-2, #approved-supplier-3, #approved-supplier-4,
+#approved-supplier-5, #approved-supplier-6, #approved-supplier-7, #approved-supplier-8, #approved-supplier-9,
+#approved-product-0, #approved-product-1, #approved-product-2, #approved-product-3, #approved-product-4,
+#approved-product-5, #approved-product-6, #approved-product-7, #approved-product-8, #approved-product-9,
+#approved-quantity-0, #approved-quantity-1, #approved-quantity-2, #approved-quantity-3, #approved-quantity-4,
+#approved-quantity-5, #approved-quantity-6, #approved-quantity-7, #approved-quantity-8, #approved-quantity-9,
+#approved-cost-0, #approved-cost-1, #approved-cost-2, #approved-cost-3, #approved-cost-4,
+#approved-cost-5, #approved-cost-6, #approved-cost-7, #approved-cost-8, #approved-cost-9,
+#approved-date-0, #approved-date-1, #approved-date-2, #approved-date-3, #approved-date-4,
+#approved-date-5, #approved-date-6, #approved-date-7, #approved-date-8, #approved-date-9,
+#approved-status-0, #approved-status-1, #approved-status-2, #approved-status-3, #approved-status-4,
+#approved-status-5, #approved-status-6, #approved-status-7, #approved-status-8, #approved-status-9 {
+  padding: 1rem 0.75rem;
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 500;
+  vertical-align: middle;
+  border-bottom: 1px solid #e5e7eb;
+  border-right: 1px solid #f3f4f6;
+}
+
+/* Cost Cells Special Styling */
+#pending-cost-0, #pending-cost-1, #pending-cost-2, #pending-cost-3, #pending-cost-4,
+#pending-cost-5, #pending-cost-6, #pending-cost-7, #pending-cost-8, #pending-cost-9,
+#approved-cost-0, #approved-cost-1, #approved-cost-2, #approved-cost-3, #approved-cost-4,
+#approved-cost-5, #approved-cost-6, #approved-cost-7, #approved-cost-8, #approved-cost-9 {
+  font-weight: 700;
+  color: #059669;
+  font-family: 'Courier New', monospace;
+}
+
+/* Status Cells */
+#pending-status-0, #pending-status-1, #pending-status-2, #pending-status-3, #pending-status-4,
+#pending-status-5, #pending-status-6, #pending-status-7, #pending-status-8, #pending-status-9,
+#approved-status-0, #approved-status-1, #approved-status-2, #approved-status-3, #approved-status-4,
+#approved-status-5, #approved-status-6, #approved-status-7, #approved-status-8, #approved-status-9 {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+#approved-status-0, #approved-status-1, #approved-status-2, #approved-status-3, #approved-status-4,
+#approved-status-5, #approved-status-6, #approved-status-7, #approved-status-8, #approved-status-9 {
+  color: #059669;
+}
+
+/* Action Cells */
+#pending-actions-0, #pending-actions-1, #pending-actions-2, #pending-actions-3, #pending-actions-4,
+#pending-actions-5, #pending-actions-6, #pending-actions-7, #pending-actions-8, #pending-actions-9 {
+  padding: 0.5rem 0.75rem;
+}
+
+/* Status Select Dropdowns */
+#status-select-pending-0, #status-select-pending-1, #status-select-pending-2, #status-select-pending-3, #status-select-pending-4,
+#status-select-pending-5, #status-select-pending-6, #status-select-pending-7, #status-select-pending-8, #status-select-pending-9 {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  background: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+  color: #004953;
+}
+
+#status-select-pending-0:focus, #status-select-pending-1:focus, #status-select-pending-2:focus, #status-select-pending-3:focus, #status-select-pending-4:focus,
+#status-select-pending-5:focus, #status-select-pending-6:focus, #status-select-pending-7:focus, #status-select-pending-8:focus, #status-select-pending-9:focus {
+  outline: none;
+  border-color: #006b7d;
+  box-shadow: 0 0 0 3px rgba(0, 73, 83, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  #supplier-payment-main-container {
+    padding: 1.5rem;
+  }
+  
+  #report-controls-section {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #supplier-payment-main-container {
+    padding: 1rem;
+  }
+  
+  #pending-requests-title,
+  #approved-requests-title {
+    font-size: 1.5rem;
+  }
+  
+  #report-controls-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  #report-controls-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 1rem;
+  }
+  
+  #report-type-selector,
+  #period-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  #download-buttons-section {
+    flex-direction: column;
+  }
+  
+  #download-pending-report-btn,
+  #download-approved-report-btn,
+  #download-all-report-btn {
+    width: 100%;
+  }
+  
+  #pending-requests-table-wrapper,
+  #approved-requests-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  #pending-requests-table,
+  #approved-requests-table {
+    min-width: 700px;
+    font-size: 0.8rem;
+  }
+  
+  #pending-supplier-header, #pending-product-header, #pending-quantity-header, #pending-cost-header,
+  #pending-date-header, #pending-status-header, #pending-actions-header,
+  #approved-supplier-header, #approved-product-header, #approved-quantity-header, #approved-cost-header,
+  #approved-date-header, #approved-status-header,
+  #pending-supplier-0, #pending-supplier-1, #pending-supplier-2, #pending-supplier-3, #pending-supplier-4,
+  #pending-supplier-5, #pending-supplier-6, #pending-supplier-7, #pending-supplier-8, #pending-supplier-9,
+  #pending-product-0, #pending-product-1, #pending-product-2, #pending-product-3, #pending-product-4,
+  #pending-product-5, #pending-product-6, #pending-product-7, #pending-product-8, #pending-product-9,
+  #pending-quantity-0, #pending-quantity-1, #pending-quantity-2, #pending-quantity-3, #pending-quantity-4,
+  #pending-quantity-5, #pending-quantity-6, #pending-quantity-7, #pending-quantity-8, #pending-quantity-9,
+  #pending-cost-0, #pending-cost-1, #pending-cost-2, #pending-cost-3, #pending-cost-4,
+  #pending-cost-5, #pending-cost-6, #pending-cost-7, #pending-cost-8, #pending-cost-9,
+  #pending-date-0, #pending-date-1, #pending-date-2, #pending-date-3, #pending-date-4,
+  #pending-date-5, #pending-date-6, #pending-date-7, #pending-date-8, #pending-date-9,
+  #pending-status-0, #pending-status-1, #pending-status-2, #pending-status-3, #pending-status-4,
+  #pending-status-5, #pending-status-6, #pending-status-7, #pending-status-8, #pending-status-9,
+  #pending-actions-0, #pending-actions-1, #pending-actions-2, #pending-actions-3, #pending-actions-4,
+  #pending-actions-5, #pending-actions-6, #pending-actions-7, #pending-actions-8, #pending-actions-9,
+  #approved-supplier-0, #approved-supplier-1, #approved-supplier-2, #approved-supplier-3, #approved-supplier-4,
+  #approved-supplier-5, #approved-supplier-6, #approved-supplier-7, #approved-supplier-8, #approved-supplier-9,
+  #approved-product-0, #approved-product-1, #approved-product-2, #approved-product-3, #approved-product-4,
+  #approved-product-5, #approved-product-6, #approved-product-7, #approved-product-8, #approved-product-9,
+  #approved-quantity-0, #approved-quantity-1, #approved-quantity-2, #approved-quantity-3, #approved-quantity-4,
+  #approved-quantity-5, #approved-quantity-6, #approved-quantity-7, #approved-quantity-8, #approved-quantity-9,
+  #approved-cost-0, #approved-cost-1, #approved-cost-2, #approved-cost-3, #approved-cost-4,
+  #approved-cost-5, #approved-cost-6, #approved-cost-7, #approved-cost-8, #approved-cost-9,
+  #approved-date-0, #approved-date-1, #approved-date-2, #approved-date-3, #approved-date-4,
+  #approved-date-5, #approved-date-6, #approved-date-7, #approved-date-8, #approved-date-9,
+  #approved-status-0, #approved-status-1, #approved-status-2, #approved-status-3, #approved-status-4,
+  #approved-status-5, #approved-status-6, #approved-status-7, #approved-status-8, #approved-status-9 {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #pending-requests-title,
+  #approved-requests-title {
+    font-size: 1.25rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  #pending-requests-table,
+  #approved-requests-table {
+    min-width: 600px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Custom Scrollbar */
+#pending-requests-table-wrapper::-webkit-scrollbar,
+#approved-requests-table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+#pending-requests-table-wrapper::-webkit-scrollbar-track,
+#approved-requests-table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+#pending-requests-table-wrapper::-webkit-scrollbar-thumb,
+#approved-requests-table-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #004953 0%, #006b7d 100%);
+  border-radius: 4px;
+}
+
+#pending-requests-table-wrapper::-webkit-scrollbar-thumb:hover,
+#approved-requests-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #006b7d 0%, #004953 100%);
+}

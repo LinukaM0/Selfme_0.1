@@ -1,0 +1,316 @@
+/* AssignedTasks.css */
+#technicianDashboard {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Custom animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+#technicianDashboard .animate-slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+#technicianDashboard .animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+#technicianDashboard .animate-spin-slow {
+  animation: spinSlow 1.5s linear infinite;
+}
+
+/* Background Animation */
+#technicianDashboard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(144, 238, 144, 0.2) 0%, rgba(26, 60, 94, 0.1) 70%);
+  animation: float 6s ease-in-out infinite;
+  z-index: -1; /* Moved behind content */
+}
+
+/* Form styling overrides for consistency */
+#technicianDashboard .employee-form input,
+#technicianDashboard .employee-form select {
+  transition: all 0.3s ease;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+#technicianDashboard .employee-form input:focus,
+#technicianDashboard .employee-form select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 60, 52, 0.3);
+  border-color: #1a3c5e;
+}
+
+/* Button styling */
+#technicianDashboard .cta-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #90EE90;
+  color: #333;
+  z-index: 2; /* Ensure buttons are clickable */
+  pointer-events: auto; /* Explicitly enable pointer events */
+}
+
+#technicianDashboard .cta-button:hover {
+  transform: translateY(-2px);
+  background-color: #76c77c;
+}
+
+#technicianDashboard .cta-button.primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+#technicianDashboard .cta-button.primary:hover {
+  background-color: #0056b3;
+}
+
+/* Dashboard Title */
+#technicianDashboard .dashboard-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1a3c5e;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #1a3c5e, #90EE90);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  z-index: 1;
+}
+
+/* Search and Filter Section */
+#technicianDashboard .search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+#technicianDashboard .search-box {
+  flex: 1;
+}
+
+#technicianDashboard .search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Download Options */
+#technicianDashboard .download-options {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+#technicianDashboard .download-options-title {
+  color: #1a3c5e;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+#technicianDashboard .download-buttons button {
+  margin-right: 10px;
+}
+
+#technicianDashboard .download-note {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Table styles */
+#technicianDashboard .orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#technicianDashboard .orders-table th,
+#technicianDashboard .orders-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#technicianDashboard .orders-table th {
+  background-color: #1a3c5e;
+  color: #fff;
+  font-weight: bold;
+}
+
+#technicianDashboard .orders-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#technicianDashboard .orders-table tr[status="Paid"]:hover {
+  background-color: #e8f5e9;
+  transition: background-color 0.3s ease;
+}
+
+/* Loading Overlay */
+#technicianDashboard .loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3; /* Above buttons */
+}
+
+#technicianDashboard .spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #90EE90;
+  border-top: 5px solid #1a3c5e;
+  border-radius: 50%;
+}
+
+/* Empty State */
+#technicianDashboard .empty-state {
+  text-align: center;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+#technicianDashboard .empty-state h3 {
+  color: #1a3c5e;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+#technicianDashboard .empty-message {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+#technicianDashboard .empty-animation {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  background: radial-gradient(circle, #90EE90, #1a3c5e);
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+#technicianDashboard .no-payments-message {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  #technicianDashboard {
+    padding: 15px;
+  }
+  #technicianDashboard .dashboard-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #technicianDashboard {
+    padding: 10px;
+  }
+  #technicianDashboard .cta-button {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+  #technicianDashboard .search-filter-container,
+  #technicianDashboard .download-options {
+    flex-direction: column;
+  }
+  #technicianDashboard .orders-table th,
+  #technicianDashboard .orders-table td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  #technicianDashboard .dashboard-title {
+    font-size: 1.2rem;
+  }
+}

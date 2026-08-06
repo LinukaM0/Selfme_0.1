@@ -1,0 +1,310 @@
+/* Nav.css - Professional Sidebar Design for SelfMe */
+
+/* Sidebar Container */
+#nav.sidebar {
+  width: 195px;
+  background: linear-gradient(180deg, #2e7d32 0%, #81c784 50%, #66bb6a 100%);
+  color: white;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  font-family: 'poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar Header */
+#nav .sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+#nav .sidebar-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#nav .sidebar-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+}
+
+#nav .sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  transition: all 0.3s ease;
+}
+
+#nav .sidebar-toggle:hover {
+  transform: rotate(90deg);
+}
+
+/* Sidebar Menu */
+#nav .sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  flex-grow: 1;
+}
+
+#nav .sidebar-menu li {
+  margin-bottom: 10px;
+}
+
+#nav .sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  color: #a8e6cf;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 100;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+#nav .sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#nav .sidebar-link.active {
+  background: linear-gradient(135deg, #66bb6a, #81c784);
+  color: #1b5e20;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(102, 187, 106, 0.4);
+}
+
+#nav .sidebar-link .icon {
+  font-size: 1.3rem;
+}
+
+#nav .sidebar-link .text {
+  flex-grow: 1;
+}
+
+/* User Info Section */
+#nav .sidebar-user-info {
+  padding: 15px 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#nav .user-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#nav .logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #d90000, #ff0000);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
+}
+
+#nav .logout-btn:hover {
+  background: linear-gradient(135deg, #a81919, #d20a0a);
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
+}
+
+#nav .logout-btn .icon {
+  font-size: 1.3rem;
+}
+
+#nav .logout-btn .text {
+  flex-grow: 1;
+}
+
+/* Sidebar Footer */
+#nav .sidebar-footer {
+  padding: 15px 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+#nav .sidebar-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-weight: 300;
+  color: #a8e6cf;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #nav.sidebar {
+    width: 70px;
+    padding: 10px;
+  }
+
+  #nav.sidebar.open {
+    width: 250px;
+  }
+
+  #nav .sidebar-title,
+  #nav .sidebar-link .text,
+  #nav .sidebar-user-info .user-name,
+  #nav .logout-btn .text,
+  #nav .sidebar-footer {
+    display: none;
+  }
+
+  #nav.sidebar.open .sidebar-title,
+  #nav.sidebar.open .sidebar-link .text,
+  #nav.sidebar.open .sidebar-user-info .user-name,
+  #nav.sidebar.open .logout-btn .text,
+  #nav.sidebar.open .sidebar-footer {
+    display: block;
+  }
+
+  #nav .sidebar-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  #nav .sidebar-toggle {
+    display: block;
+  }
+
+  #nav .sidebar-link,
+  #nav .logout-btn {
+    justify-content: center;
+    padding: 10px;
+  }
+
+  #nav.sidebar.open .sidebar-link,
+  #nav.sidebar.open .logout-btn {
+    justify-content: flex-start;
+    padding: 15px 20px;
+  }
+
+  #nav .sidebar-link .icon,
+  #nav .logout-btn .icon {
+    font-size: 1.5rem;
+  }
+
+  #nav .sidebar-user-info {
+    align-items: center;
+  }
+
+  #nav .logout-btn {
+    width: auto;
+    padding: 10px;
+  }
+
+  #nav.sidebar.open .logout-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  #nav.sidebar {
+    width: 60px;
+  }
+
+  #nav.sidebar.open {
+    width: 220px;
+  }
+
+  #nav .sidebar-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  #nav .sidebar-link,
+  #nav .logout-btn {
+    padding: 8px;
+  }
+
+  #nav.sidebar.open .sidebar-link,
+  #nav.sidebar.open .logout-btn {
+    padding: 12px 15px;
+  }
+}
+
+/* Adjust Main Content to Account for Sidebar */
+@media (min-width: 769px) {
+  #nav ~ .users-section,
+  #nav ~ .supply-products-section {
+    margin-left: 300px; /* Adjust for sidebar width + padding */
+  }
+}
+
+@media (max-width: 768px) {
+  #nav ~ .users-section,
+  #nav ~ .supply-products-section {
+    margin-left: 90px; /* Adjust for collapsed sidebar */
+  }
+
+  #nav.sidebar.open ~ .users-section,
+  #nav.sidebar.open ~ .supply-products-section {
+    margin-left: 270px;
+  }
+}
+
+@media (max-width: 576px) {
+  #nav ~ .users-section,
+  #nav ~ .supply-products-section {
+    margin-left: 80px;
+  }
+
+  #nav.sidebar.open ~ .users-section,
+  #nav.sidebar.open ~ .supply-products-section {
+    margin-left: 240px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  #nav.sidebar {
+    display: none !important;
+  }
+
+  #nav ~ .users-section,
+  #nav ~ .supply-products-section {
+    margin-left: 0 !important;
+  }
+}

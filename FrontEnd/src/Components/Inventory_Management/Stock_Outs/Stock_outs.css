@@ -1,0 +1,716 @@
+
+/* Stock_Outs.css - Additional Styles for Pending Orders Visibility */
+
+#stock-outs-page-wrapper {
+  min-height: 100vh;
+  background: #ffffff;
+  margin-left: 300px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#stock-outs-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+#stock-outs-page-header {
+  margin-bottom: 30px;
+}
+
+#stock-outs-main-title {
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+#stock-outs-subtitle {
+  margin: 0;
+  color: #666;
+  font-size: 16px;
+}
+
+/* Dashboard Section - Pending Alert */
+#stock-outs-dashboard {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 25px;
+  border: 1px solid #e0e0e0;
+}
+
+#stock-outs-dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stock-outs-stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.stock-outs-stat-card.pending-alert {
+  border: 2px solid #ff6b6b;
+  background: #fff5f5;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.2);
+  animation: pulse 2s infinite;
+}
+
+.pending-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff6b6b;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.stock-outs-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.stock-outs-stat-card.pending-alert .stock-outs-stat-value {
+  color: #d63031;
+}
+
+.stock-outs-stat-label {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.stock-outs-stat-card.pending-alert .stock-outs-stat-label {
+  color: #e17055;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+}
+
+#stock-outs-pdf-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+#stock-outs-pdf-technical-btn,
+#stock-outs-pdf-customer-btn {
+  padding: 10px 20px;
+  background: #39c65a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+#stock-outs-pdf-technical-btn:hover:not(:disabled),
+#stock-outs-pdf-customer-btn:hover:not(:disabled) {
+  background: #333;
+}
+
+#stock-outs-pdf-technical-btn:disabled,
+#stock-outs-pdf-customer-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+#stock-outs-message-alert {
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+
+#stock-outs-message-alert.success {
+  background: #f0f9f0;
+  border-color: #28a745;
+  color: #155724;
+}
+
+#stock-outs-message-alert.error {
+  background: #fdf2f2;
+  border-color: #e53e3e;
+  color: #c53030;
+}
+
+/* Tabs Section - Enhanced Pending Notification */
+#stock-outs-tabs-section {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+  position: relative;
+}
+
+#stock-outs-tab-button {
+  padding: 12px 24px;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+#stock-outs-tab-button:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+#stock-outs-tab-button.active {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* Pending Notification Styles */
+#stock-outs-tab-button.pending-notification {
+  background: #fff5f5;
+  border: 1px solid #ff6b6b;
+  color: #d63031;
+  font-weight: 600;
+  position: relative;
+  overflow: visible;
+}
+
+#stock-outs-tab-button.pending-notification:hover {
+  background: #ffeaea;
+  border-color: #ff4757;
+}
+
+#stock-outs-tab-button.pending-notification.active {
+  background: #d63031;
+  color: white;
+  border-color: #d63031;
+}
+
+.notification-dot {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 12px;
+  height: 12px;
+  background: #ff4757;
+  border-radius: 50%;
+  border: 2px solid white;
+  animation: blink 2s infinite;
+}
+
+.urgent-badge {
+  background: #ff4757;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 6px;
+  text-transform: uppercase;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+#stock-outs-main-content {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+/* Order Creation Card */
+#stock-outs-order-creation-card {
+  padding: 30px;
+}
+
+#stock-outs-order-card-content {
+  display: grid;
+  gap: 30px;
+}
+
+#stock-outs-form-section h3 {
+  margin: 0 0 20px 0;
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#stock-outs-stock-out-id-preview {
+  margin-bottom: 20px;
+}
+
+#stock-outs-stock-out-id-preview label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#stock-outs-stock-out-id-display {
+  padding: 10px 14px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-family: monospace;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+#stock-outs-order-type-section {
+  margin-bottom: 20px;
+}
+
+#stock-outs-order-type-section label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#stock-outs-order-type-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+#stock-outs-type-btn {
+  padding: 12px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+#stock-outs-type-btn:hover {
+  border-color: #999;
+}
+
+#stock-outs-type-btn.active {
+  background: #1a1a1a;
+  color: white;
+  border-color: #1a1a1a;
+}
+
+#stock-outs-customer-id-section {
+  margin-bottom: 20px;
+}
+
+#stock-outs-customer-id-section label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#stock-outs-customer-id-section input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#stock-outs-add-item-section {
+  margin-bottom: 20px;
+}
+
+#stock-outs-add-item-section label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#stock-outs-add-item-section select {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
+
+/* Order Items Section */
+#stock-outs-order-items-section {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 25px;
+}
+
+#stock-outs-order-items-section h3 {
+  margin: 0 0 20px 0;
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#stock-outs-clear-order-btn {
+  padding: 6px 12px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#stock-outs-order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#stock-outs-order-table th {
+  background: #f8f9fa;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 13px;
+}
+
+#stock-outs-order-table td {
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+
+#stock-outs-quantity-input {
+  width: 80px;
+  padding: 6px 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+#stock-outs-stock-info {
+  font-size: 12px;
+  color: #666;
+}
+
+#stock-outs-remove-item-btn {
+  padding: 6px 12px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#stock-outs-order-summary {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+
+#stock-outs-order-total {
+  text-align: right;
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+#stock-outs-order-actions {
+  text-align: right;
+}
+
+#stock-outs-place-order-btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+#stock-outs-place-order-btn.technical {
+  background: #1a1a1a;
+  color: white;
+}
+
+#stock-outs-place-order-btn.customer {
+  background: #1a1a1a;
+  color: white;
+}
+
+#stock-outs-place-order-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+#stock-outs-loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Pending Orders - Enhanced Styles */
+#stock-outs-pending-orders-card,
+#stock-outs-processed-orders-card,
+#stock-outs-orders-history-card {
+  padding: 30px;
+}
+
+.tab-header-with-alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pending-alert-banner {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: shake 2s ease-in-out infinite;
+}
+
+.alert-icon {
+  font-size: 16px;
+}
+
+.alert-text {
+  font-weight: 600;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+#stock-outs-pending-orders-card h3,
+#stock-outs-processed-orders-card h3,
+#stock-outs-orders-history-card h3 {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#stock-outs-tab-description {
+  margin: 0 0 20px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+#stock-outs-no-orders {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+#stock-outs-no-orders-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+
+#stock-outs-no-orders h4 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+#stock-outs-no-orders p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Pending Orders Container */
+.pending-orders-container {
+  border: 2px solid #ff6b6b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pending-orders-header {
+  background: #fff5f5;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ff6b6b;
+}
+
+.pending-count {
+  font-weight: 600;
+  color: #d63031;
+  font-size: 14px;
+}
+
+.action-required {
+  font-size: 12px;
+  color: #e17055;
+  font-weight: 500;
+}
+
+.pending-order-row {
+  background: #fffafa;
+  transition: background-color 0.2s ease;
+}
+
+.pending-order-row:hover {
+  background: #fff0f0;
+}
+
+/* Tables */
+#stock-outs-pending-table,
+#stock-outs-processed-table,
+#stock-outs-history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#stock-outs-pending-table th,
+#stock-outs-processed-table th,
+#stock-outs-history-table th {
+  background: #f8f9fa;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 13px;
+}
+
+#stock-outs-pending-table td,
+#stock-outs-processed-table td,
+#stock-outs-history-table td {
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+
+#stock-outs-stock-out-id {
+  font-family: monospace;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+#stock-outs-items-count {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+#stock-outs-items-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#stock-outs-item-preview {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+}
+
+#stock-outs-item-name {
+  color: #333;
+}
+
+#stock-outs-item-quantity {
+  color: #666;
+}
+
+#stock-outs-item-serial {
+  color: #999;
+  font-size: 11px;
+}
+
+#stock-outs-more-items {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+}
+
+#stock-outs-confirm-order-btn {
+  padding: 8px 16px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+#stock-outs-confirm-order-btn:hover {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+#stock-outs-status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+#stock-outs-status-badge.confirmed {
+  background: #d4edda;
+  color: #155724;
+}
+
+#stock-outs-status-badge.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

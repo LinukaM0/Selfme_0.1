@@ -1,0 +1,737 @@
+/* UserDashboard.css - Professional Solar Company Styling */
+
+/* Main Dashboard Container */
+#user-dashboard-main {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fdf8 0%, #f0f8f0 100%);
+  font-family: "Poppins", sans-serif;
+}
+
+#user-dashboard-content {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Welcome Header */
+#dashboard-welcome-header {
+  background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(46, 125, 50, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+#dashboard-welcome-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+  background-size: cover;
+}
+
+#dashboard-welcome-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+#dashboard-welcome-info {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
+}
+
+/* User Details Container */
+#user-details-container {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(46, 125, 50, 0.1);
+}
+
+#user-details-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+#user-details-header h3 {
+  font-size: 2rem;
+  color: #2e7d32;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+#user-details-header h3::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #81c784, #2e7d32);
+  border-radius: 2px;
+}
+
+/* Error Messages */
+#user-details-error {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Profile Form */
+#user-profile-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #e8f5e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8fdf8;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2e7d32;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.form-group input:disabled {
+  background: #f5f5f5;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Profile Display */
+#user-profile-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+#user-profile-display p {
+  background: #f8fdf8;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin: 0;
+  border-left: 4px solid #2e7d32;
+  transition: transform 0.2s ease;
+}
+
+#user-profile-display p:hover {
+  transform: translateX(5px);
+  background: #f0f8f0;
+}
+
+#user-profile-display strong {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* Loading State */
+#user-profile-loading {
+  text-align: center;
+  padding: 3rem;
+  color: #2e7d32;
+  font-size: 1.1rem;
+  background: #f8fdf8;
+  border-radius: 12px;
+  border: 2px dashed #c8e6c9;
+}
+
+/* Buttons */
+.btn-edit, .btn-save, .btn-cancel {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+  min-width: 140px;
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #2e7d32, #388e3c);
+  color: white;
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+.btn-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+}
+
+.btn-save {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+.btn-cancel {
+  background: transparent;
+  color: #666;
+  border: 2px solid #ddd;
+}
+
+.btn-cancel:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+/* Dashboard Actions */
+#dashboard-actions-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.btn-cart, .btn-packages {
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  text-align: center;
+}
+
+.btn-cart {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+}
+
+.btn-cart:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+}
+
+.btn-packages {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: white;
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+.btn-packages:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+}
+
+/* Payment History */
+#payment-history-container {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(46, 125, 50, 0.1);
+}
+
+#payment-history-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+#payment-history-header h2 {
+  font-size: 2rem;
+  color: #2e7d32;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+#payment-history-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #81c784, #2e7d32);
+  border-radius: 2px;
+}
+
+/* Payment Table */
+#payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+#payment-table thead {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+}
+
+#payment-table th {
+  color: white;
+  padding: 1.2rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+#payment-table tbody tr {
+  border-bottom: 1px solid #e8f5e9;
+  transition: background 0.3s ease;
+}
+
+#payment-table tbody tr:hover {
+  background: #f8fdf8;
+}
+
+#payment-table td {
+  padding: 1.2rem 1rem;
+  color: #333;
+}
+
+/* Status Badges */
+.status-pending, .status-paid, .status-failed {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pending {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.status-paid {
+  background: #e8f5e8;
+  color: #2e7d32;
+}
+
+.status-failed {
+  background: #ffebee;
+  color: #c62828;
+}
+
+/* Slip Image */
+.slip-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #e8f5e9;
+  transition: transform 0.3s ease;
+}
+
+.slip-image:hover {
+  transform: scale(1.1);
+}
+
+/* Receipt Button */
+.btn-receipt {
+  background: linear-gradient(135deg, #2e7d32, #388e3c);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-receipt:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+.waiting-approval {
+  color: #f57c00;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Empty State */
+#payment-empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  background: #f8fdf8;
+  border-radius: 12px;
+  border: 2px dashed #c8e6c9;
+  font-size: 1.1rem;
+}
+
+/* Form Actions */
+#user-profile-form > div:last-child {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  #user-dashboard-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  #dashboard-welcome-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  #user-profile-form,
+  #user-profile-display {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  #dashboard-welcome-header {
+    padding: 2rem 1.5rem;
+  }
+  
+  #dashboard-welcome-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  #user-details-container,
+  #payment-history-container {
+    padding: 2rem 1.5rem;
+  }
+  
+  #dashboard-actions-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-cart, .btn-packages {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  #payment-table {
+    font-size: 0.9rem;
+  }
+  
+  #payment-table th,
+  #payment-table td {
+    padding: 0.8rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #user-dashboard-content {
+    padding: 1rem 0.5rem;
+  }
+  
+  #dashboard-welcome-header {
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+  }
+  
+  #dashboard-welcome-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  #user-details-container,
+  #payment-history-container {
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+  }
+  
+  .btn-edit, .btn-save, .btn-cancel {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  #payment-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* Animation for smooth transitions */
+#user-details-container,
+#payment-history-container,
+#dashboard-welcome-header {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading animation */
+#user-profile-loading {
+  position: relative;
+}
+
+#user-profile-loading::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c8e6c9;
+  border-top: 2px solid #2e7d32;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* Edit Profile Button Styles */
+.profile-actions {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e8f5e9;
+}
+
+.btn-edit-profile {
+  background: linear-gradient(135deg, #2e7d32, #388e3c);
+  color: white;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 180px;
+}
+
+.btn-edit-profile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+  background: linear-gradient(135deg, #388e3c, #2e7d32);
+}
+
+.btn-edit-profile:active {
+  transform: translateY(-1px);
+}
+
+/* Form Actions Styling */
+.form-actions {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e8f5e9;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Dashboard Actions Container Update */
+#dashboard-actions-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+/* Profile Header with Edit Button */
+.profile-header-with-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.profile-header-with-actions h3 {
+  margin: 0;
+}
+
+.profile-header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Compact Edit Button for Header */
+.btn-edit-compact {
+  background: linear-gradient(135deg, #2e7d32, #388e3c);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(46, 125, 50, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-edit-compact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.4);
+}
+
+/* Enhanced Profile Display */
+#user-profile-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+  position: relative;
+}
+
+/* Profile Info Cards */
+.profile-info-card {
+  background: linear-gradient(135deg, #f8fdf8, #f0f8f0);
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #2e7d32;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-info-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(46, 125, 50, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.profile-info-card:hover::before {
+  left: 100%;
+}
+
+.profile-info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.15);
+}
+
+.profile-info-card strong {
+  color: #2e7d32;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.profile-info-card span {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Responsive Design for Edit Button */
+@media (max-width: 768px) {
+  .profile-header-with-actions {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-header-actions {
+    justify-content: center;
+  }
+  
+  .btn-edit-profile, 
+  .btn-edit-compact {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-save, 
+  .btn-cancel {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Animation for button hover effects */
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+  }
+  50% {
+    box-shadow: 0 5px 20px rgba(46, 125, 50, 0.5);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+  }
+}
+
+.btn-edit-profile:hover,
+.btn-edit-compact:hover {
+  animation: buttonPulse 2s infinite;
+}

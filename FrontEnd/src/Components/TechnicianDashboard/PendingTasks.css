@@ -1,0 +1,449 @@
+/* PendingTasks.css */
+#pendingTasks {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#pendingTasks .animate-slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+#pendingTasks .animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+#pendingTasks .animate-spin-slow {
+  animation: spinSlow 1.5s linear infinite;
+}
+
+#pendingTasks .animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#pendingTasks::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(40, 167, 69, 0.2) 0%, rgba(26, 60, 94, 0.1) 70%);
+  animation: float 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+#pendingTasks .employee-form input {
+  transition: all 0.3s ease;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+#pendingTasks .employee-form input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 60, 52, 0.3);
+  border-color: #1a3c5e;
+}
+
+#pendingTasks .cta-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #28a745;
+  color: #fff;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+#pendingTasks .cta-button:hover {
+  transform: translateY(-2px);
+  background-color: #218838;
+}
+
+#pendingTasks .cta-button.primary {
+  background-color: #28a745;
+  color: #fff;
+}
+
+#pendingTasks .cta-button.primary:hover {
+  background-color: #218838;
+}
+
+#pendingTasks .update-btn {
+  padding: 8px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #28a745;
+  color: #fff;
+  z-index: 2;
+  pointer-events: auto;
+  margin-right: 10px;
+}
+
+#pendingTasks .update-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background-color: #218838;
+}
+
+#pendingTasks .update-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#pendingTasks .dashboard-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1a3c5e;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #1a3c5e, #28a745);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  z-index: 1;
+}
+
+#pendingTasks .search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+#pendingTasks .search-box {
+  flex: 1;
+}
+
+#pendingTasks .search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#pendingTasks .download-options {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  text-align: center;
+}
+
+#pendingTasks .download-header {
+  margin-bottom: 15px;
+}
+
+#pendingTasks .download-options-title {
+  color: #1a3c5e;
+  font-size: 1.2rem;
+  margin: 0;
+  display: inline-block;
+}
+
+#pendingTasks .download-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#pendingTasks .download-buttons button {
+  margin: 0;
+}
+
+#pendingTasks .download-note {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+  max-width: 300px;
+}
+
+#pendingTasks .pending-tasks-list {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+#pendingTasks .tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e7ff;
+}
+
+#pendingTasks .tasks-header h3 {
+  color: #1a3c5e;
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+#pendingTasks .total-tasks-right {
+  color: #1a3c5e;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #28a745, #1a3c5e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#pendingTasks .table-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+#pendingTasks .filtered-count {
+  font-size: 0.9rem;
+  color: #333;
+  background-color: rgba(40, 167, 69, 0.2);
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+#pendingTasks .orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#pendingTasks .orders-table th,
+#pendingTasks .orders-table td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid #e0e0e0; /* Ensures lines separate columns and rows */
+}
+
+#pendingTasks .orders-table th {
+  background-color: #28a745; /* Explicitly set to #28a745 as requested */
+  color: #fff;
+  font-weight: bold;
+}
+
+#pendingTasks .orders-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#pendingTasks .orders-table tr[status="pending"]:hover {
+  background-color: #e8f5e9;
+  transition: background-color 0.3s ease;
+}
+
+#pendingTasks .orders-table select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+#pendingTasks .orders-table select:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
+  outline: none;
+}
+
+#pendingTasks .loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+#pendingTasks .spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #28a745;
+  border-top: 5px solid #1a3c5e;
+  border-radius: 50%;
+}
+
+#pendingTasks .empty-state {
+  text-align: center;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+  animation: pulse 2s infinite;
+}
+
+#pendingTasks .empty-state h3 {
+  color: #1a3c5e;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+#pendingTasks .empty-message {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+#pendingTasks .empty-animation {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  background: radial-gradient(circle, #28a745, #1a3c5e);
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite, rotate 6s linear infinite;
+}
+
+#pendingTasks .no-tasks-message {
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  #pendingTasks {
+    padding: 15px;
+  }
+  #pendingTasks .dashboard-title {
+    font-size: 1.5rem;
+  }
+  #pendingTasks .tasks-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  #pendingTasks .total-tasks-right {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 600px) {
+  #pendingTasks {
+    padding: 10px;
+  }
+  #pendingTasks .cta-button,
+  #pendingTasks .update-btn {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+  #pendingTasks .search-filter-container,
+  #pendingTasks .download-options {
+    flex-direction: column;
+  }
+  #pendingTasks .orders-table th,
+  #pendingTasks .orders-table td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  #pendingTasks .dashboard-title {
+    font-size: 1.2rem;
+  }
+  #pendingTasks .download-content {
+    gap: 15px;
+  }
+}

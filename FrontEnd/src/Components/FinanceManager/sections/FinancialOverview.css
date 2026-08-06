@@ -1,0 +1,739 @@
+/* FinancialOverview.css */
+
+/* Main Content Section */
+#financial-overview-content-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f8f7 0%, #e8f5f3 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page Title */
+#financial-overview-page-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #004953;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  background: linear-gradient(45deg, #004953, #006b7d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Section Headers */
+.financial-overview-section-header {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #004953;
+  margin: 2rem 0 1rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 6px solid #006b7d;
+  background: linear-gradient(45deg, #ffffff, #f0f8f7);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 73, 83, 0.1);
+}
+
+/* Income Section Styling */
+.financial-overview-income-header {
+  border-left-color: #10b981;
+}
+
+.financial-overview-income-table thead {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+/* Profit Section Styling */
+.financial-overview-profit-header {
+  border-left-color: #3b82f6;
+}
+
+.financial-overview-profit-table thead {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+}
+
+/* Expenses Section Styling */
+.financial-overview-expenses-header {
+  border-left-color: #f59e0b;
+}
+
+.financial-overview-expenses-table thead {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #000;
+}
+
+/* Net Income Section Styling */
+.financial-overview-net-income-header {
+  border-left-color: #8b5cf6;
+}
+
+.financial-overview-net-income-table thead {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+}
+
+/* Date Filter Container */
+#financial-overview-date-filter-container {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbfa 100%);
+  border: 2px solid #004953;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 73, 83, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Date Filter Labels */
+.financial-overview-date-label {
+  font-weight: 600;
+  color: #004953;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Date Inputs */
+.financial-overview-date-input {
+  border: 2px solid #004953;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #004953;
+  background: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.financial-overview-date-input:focus {
+  outline: none;
+  border-color: #006b7d;
+  box-shadow: 0 0 0 3px rgba(0, 73, 83, 0.1);
+}
+
+.financial-overview-date-input:hover {
+  background: #f0f8f7;
+  border-color: #006b7d;
+}
+
+/* Filter Buttons */
+#financial-overview-filter-btn,
+#financial-overview-reset-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#financial-overview-filter-btn {
+  background: linear-gradient(135deg, #004953 0%, #006b7d 100%);
+  color: white;
+}
+
+#financial-overview-filter-btn:hover {
+  background: linear-gradient(135deg, #006b7d 0%, #004953 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 73, 83, 0.3);
+}
+
+#financial-overview-reset-btn {
+  background: transparent;
+  border: 2px solid #004953;
+  color: #004953;
+  padding: 0.4rem;
+}
+
+#financial-overview-reset-btn:hover {
+  background: #004953;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Tables Container */
+.financial-overview-table-container {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 73, 83, 0.15);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+/* Main Tables */
+.financial-overview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+/* Table Headers - Default */
+.financial-overview-table thead {
+  background: linear-gradient(135deg, #004953 0%, #006b7d 100%);
+  color: white;
+}
+
+.financial-overview-table th {
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.financial-overview-table th:last-child {
+  border-right: none;
+}
+
+/* Table Body */
+.financial-overview-table td {
+  padding: 0.875rem 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  border-right: 1px solid #f3f4f6;
+  font-weight: 500;
+  color: #374151;
+}
+
+.financial-overview-table td:last-child {
+  border-right: none;
+}
+
+/* Table Row Hover Effects */
+.financial-overview-table tbody tr:hover {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 20%);
+  transform: scale(1.005);
+  transition: all 0.3s ease;
+}
+
+/* No Data Message */
+.financial-overview-no-data {
+  background: #f9fafb;
+  border: 2px dashed #9ca3af;
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Total Headers */
+.financial-overview-total-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #004953;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+/* Error Message */
+#financial-overview-error-message {
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #dc2626;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Add/Edit Expense Form Container */
+#financial-overview-expense-form-container {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbfa 100%);
+  border: 2px solid #422226;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(220, 53, 69, 0.15);
+}
+
+/* Form Title */
+#financial-overview-expense-form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #422226;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.75rem;
+}
+
+/* Form Fields Container */
+.financial-overview-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Form Field Container */
+.financial-overview-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Form Labels */
+.financial-overview-form-label {
+  font-weight: 600;
+  color: #422226;
+  font-size: 0.95rem;
+}
+
+/* Form Inputs and Selects */
+.financial-overview-form-input,
+.financial-overview-form-select,
+.financial-overview-form-textarea {
+  border: 2px solid #422226;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #422226;
+  background: white;
+  transition: all 0.3s ease;
+  width: 200px;
+}
+
+.financial-overview-form-textarea {
+  height: 60px;
+  resize: vertical;
+}
+
+.financial-overview-form-input:focus,
+.financial-overview-form-select:focus,
+.financial-overview-form-textarea:focus {
+  outline: none;
+  border-color: #422226;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.financial-overview-form-input:hover,
+.financial-overview-form-select:hover,
+.financial-overview-form-textarea:hover {
+  background: #fef2f2;
+  border-color: #422226;
+}
+
+/* Form Action Buttons Container */
+.financial-overview-form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Form Buttons */
+#financial-overview-add-expense-btn,
+#financial-overview-update-expense-btn,
+#financial-overview-cancel-edit-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100px;
+}
+
+#financial-overview-add-expense-btn,
+#financial-overview-update-expense-btn {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+}
+
+#financial-overview-add-expense-btn:hover,
+#financial-overview-update-expense-btn:hover {
+  background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+#financial-overview-cancel-edit-btn {
+  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+  color: white;
+}
+
+#financial-overview-cancel-edit-btn:hover {
+  background: linear-gradient(135deg, #495057 0%, #343a40 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+/* Action Buttons in Tables */
+.financial-overview-edit-btn,
+.financial-overview-delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  margin: 0 0.25rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.financial-overview-edit-btn:hover {
+  background: rgba(245, 158, 11, 0.1);
+  transform: scale(1.1);
+}
+
+.financial-overview-delete-btn:hover {
+  background: rgba(220, 38, 38, 0.1);
+  transform: scale(1.1);
+}
+
+/* Report Download Section */
+#financial-overview-download-section {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbfa 100%);
+  border: 2px solid #004953;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 73, 83, 0.15);
+}
+
+/* Download Controls Container */
+#financial-overview-download-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Download Labels */
+.financial-overview-download-label {
+  font-weight: 600;
+  color: #004953;
+  font-size: 0.95rem;
+  margin-right: 0.5rem;
+}
+
+/* Download Inputs and Selects */
+.financial-overview-download-select,
+.financial-overview-download-input {
+  border: 2px solid #004953;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #004953;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.financial-overview-download-select:focus,
+.financial-overview-download-input:focus {
+  outline: none;
+  border-color: #006b7d;
+  box-shadow: 0 0 0 3px rgba(0, 73, 83, 0.1);
+}
+
+.financial-overview-download-select:hover,
+.financial-overview-download-input:hover {
+  background: #f0f8f7;
+  border-color: #006b7d;
+}
+
+/* Download Buttons */
+.financial-overview-download-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #004953 0%, #006b7d 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.financial-overview-download-btn:hover {
+  background: linear-gradient(135deg, #006b7d 0%, #004953 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 73, 83, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  #financial-overview-content-section {
+    padding: 1.5rem;
+  }
+  
+  .financial-overview-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .financial-overview-table {
+    min-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  #financial-overview-content-section {
+    padding: 1rem;
+  }
+  
+  #financial-overview-page-title {
+    font-size: 1.75rem;
+  }
+  
+  .financial-overview-section-header {
+    font-size: 1.5rem;
+  }
+  
+  #financial-overview-date-filter-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .financial-overview-date-input,
+  .financial-overview-download-select,
+  .financial-overview-download-input {
+    width: 100%;
+  }
+  
+  .financial-overview-form-input,
+  .financial-overview-form-select,
+  .financial-overview-form-textarea {
+    width: 100%;
+  }
+  
+  #financial-overview-download-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .financial-overview-download-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .financial-overview-table {
+    font-size: 0.8rem;
+    min-width: 700px;
+  }
+  
+  .financial-overview-table th,
+  .financial-overview-table td {
+    padding: 0.5rem 0.4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #financial-overview-page-title {
+    font-size: 1.5rem;
+  }
+  
+  .financial-overview-section-header {
+    font-size: 1.25rem;
+  }
+  
+  .financial-overview-table {
+    min-width: 600px;
+    font-size: 0.75rem;
+  }
+  
+  #financial-overview-expense-form-container {
+    padding: 1.5rem;
+  }
+  
+  .financial-overview-form-actions {
+    flex-direction: column;
+  }
+  
+  #financial-overview-add-expense-btn,
+  #financial-overview-update-expense-btn,
+  #financial-overview-cancel-edit-btn {
+    width: 100%;
+  }
+}
+
+/* Custom Scrollbar for Table Container */
+.financial-overview-table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.financial-overview-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.financial-overview-table-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #004953 0%, #006b7d 100%);
+  border-radius: 4px;
+}
+
+.financial-overview-table-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #006b7d 0%, #004953 100%);
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.financial-overview-loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Status Indicators */
+.financial-overview-positive {
+  color: #059669;
+  font-weight: 600;
+}
+
+.financial-overview-negative {
+  color: #291313;
+  font-weight: 600;
+}
+
+.financial-overview-neutral {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* Add these CSS styles to your existing FinancialOverview.css */
+
+/* ========================================
+   SEARCH SECTION
+   ======================================== */
+
+
+
+#financial-overview-search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  max-width: 700px; /* smaller width */
+  margin: 0 auto 2rem auto; /* centers horizontally and keeps bottom margin */
+  margin-bottom: 2rem;
+}
+
+#financial-overview-search-input {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 0.8rem;
+  border: 2px solid #004953;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: white;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #004953;
+  font-weight: 500;
+}
+
+#financial-overview-search-input::placeholder {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+#financial-overview-search-input:focus {
+  outline: none;
+  border-color: #006b7d;
+  box-shadow: 0 0 0 3px rgba(0, 73, 83, 0.1);
+  background-color: #f0f8f7;
+}
+
+#financial-overview-search-input:not(:placeholder-shown) {
+  border-color: #006b7d;
+}
+
+/* Search Clear Button */
+#financial-overview-search-clear-btn {
+  position: absolute;
+  right: 0.5rem;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border: none;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  font-weight: bold;
+}
+
+#financial-overview-search-clear-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+}
+
+#financial-overview-search-clear-btn:active {
+  transform: scale(0.95);
+}
+
+/* Search Results Info */
+#financial-overview-search-results-info {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #dcfce7 0%, #d1fae5 100%);
+  border-left: 4px solid #10b981;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #065f46;
+  font-weight: 600;
+}
+
+#financial-overview-search-results-info p {
+  margin: 0;
+}
+
+/* Responsive Design for Search */
+@media (max-width: 1200px) {
+  #financial-overview-search-container {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  #financial-overview-search-section {
+    padding: 1rem;
+  }
+
+  #financial-overview-search-container {
+    max-width: 100%;
+  }
+
+  #financial-overview-search-input {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #financial-overview-search-input {
+    font-size: 0.85rem;
+    padding: 0.5rem 2.2rem 0.5rem 0.7rem;
+  }
+
+  #financial-overview-search-clear-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+    right: 0.3rem;
+  }
+
+  #financial-overview-search-results-info {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+    margin-top: 0.75rem;
+  }
+}

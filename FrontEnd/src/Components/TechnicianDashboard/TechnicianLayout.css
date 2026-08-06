@@ -1,0 +1,293 @@
+/* TechnicianLayout.css - Professional Sidebar Design for SelfMe Technician Layout */
+
+/* Layout Container */
+.technician-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Container */
+#technician-nav.sidebar {
+  width: 195px;
+  background: linear-gradient(180deg, #2e7d32 0%, #81c784 50%, #66bb6a 100%);
+  color: white;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar Header */
+#technician-nav .sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+#technician-nav .sidebar-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#technician-nav .sidebar-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+}
+
+#technician-nav .sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  transition: all 0.3s ease;
+}
+
+#technician-nav .sidebar-toggle:hover {
+  transform: rotate(90deg);
+}
+
+/* Sidebar Menu */
+#technician-nav .sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  flex-grow: 1;
+}
+
+#technician-nav .sidebar-menu li {
+  margin-bottom: 10px;
+}
+
+#technician-nav .sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  color: #a8e6cf;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 100;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+#technician-nav .sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#technician-nav .sidebar-link.active {
+  background: linear-gradient(135deg, #66bb6a, #81c784);
+  color: #1b5e20;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(102, 187, 106, 0.4);
+}
+
+#technician-nav .sidebar-link .text {
+  flex-grow: 1;
+}
+
+/* User Info Section */
+#technician-nav .sidebar-user-info {
+  padding: 15px 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#technician-nav .user-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#technician-nav .logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #d90000, #ff0000);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
+}
+
+#technician-nav .logout-btn:hover {
+  background: linear-gradient(135deg, #a81919, #d20a0a);
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
+}
+
+#technician-nav .logout-btn .text {
+  flex-grow: 1;
+}
+
+/* Sidebar Footer */
+#technician-nav .sidebar-footer {
+  padding: 15px 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+#technician-nav .sidebar-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-weight: 300;
+  color: #a8e6cf;
+}
+
+/* Main Content Area */
+.technician-content {
+  margin-left: 235px; /* Adjust for sidebar width + padding */
+  flex: 1;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #technician-nav.sidebar {
+    width: 70px;
+    padding: 10px;
+  }
+
+  #technician-nav.sidebar.open {
+    width: 250px;
+  }
+
+  #technician-nav .sidebar-title,
+  #technician-nav .sidebar-link .text,
+  #technician-nav .sidebar-user-info .user-name,
+  #technician-nav .logout-btn .text,
+  #technician-nav .sidebar-footer {
+    display: none;
+  }
+
+  #technician-nav.sidebar.open .sidebar-title,
+  #technician-nav.sidebar.open .sidebar-link .text,
+  #technician-nav.sidebar.open .sidebar-user-info .user-name,
+  #technician-nav.sidebar.open .logout-btn .text,
+  #technician-nav.sidebar.open .sidebar-footer {
+    display: block;
+  }
+
+  #technician-nav .sidebar-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  #technician-nav .sidebar-toggle {
+    display: block;
+  }
+
+  #technician-nav .sidebar-link,
+  #technician-nav .logout-btn {
+    justify-content: center;
+    padding: 10px;
+  }
+
+  #technician-nav.sidebar.open .sidebar-link,
+  #technician-nav.sidebar.open .logout-btn {
+    justify-content: flex-start;
+    padding: 15px 20px;
+  }
+
+  #technician-nav .sidebar-user-info {
+    align-items: center;
+  }
+
+  #technician-nav .logout-btn {
+    width: auto;
+    padding: 10px;
+  }
+
+  #technician-nav.sidebar.open .logout-btn {
+    width: 100%;
+  }
+
+  .technician-content {
+    margin-left: 90px; /* Adjust for collapsed sidebar */
+  }
+
+  #technician-nav.sidebar.open ~ .technician-content {
+    margin-left: 270px;
+  }
+}
+
+@media (max-width: 576px) {
+  #technician-nav.sidebar {
+    width: 60px;
+  }
+
+  #technician-nav.sidebar.open {
+    width: 220px;
+  }
+
+  #technician-nav .sidebar-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  #technician-nav .sidebar-link,
+  #technician-nav .logout-btn {
+    padding: 8px;
+  }
+
+  #technician-nav.sidebar.open .sidebar-link,
+  #technician-nav.sidebar.open .logout-btn {
+    padding: 12px 15px;
+  }
+
+  .technician-content {
+    margin-left: 80px;
+  }
+
+  #technician-nav.sidebar.open ~ .technician-content {
+    margin-left: 240px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  #technician-nav.sidebar {
+    display: none !important;
+  }
+
+  .technician-content {
+    margin-left: 0 !important;
+  }
+}

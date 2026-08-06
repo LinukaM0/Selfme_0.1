@@ -1,0 +1,446 @@
+// Updated AllFeedback.jsx with Pie Chart for Ratings
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { removeAuthToken } from '../../../utils/auth';
+import axios from 'axios';
+import jsPDF from 'jspdf';
+import Nav from '../../Nav/Nav';
+import { Pie } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import './AllFeedback.css';
+
+ChartJS.register(ArcElement, Title, Tooltip, Legend);
+
+const URL = 'http://localhost:5000/all-feedback';
+
+function AllFeedback() {
+  const navigate = useNavigate();
+  const authUser = JSON.parse(localStorage.getItem('authUser') || '{}');
+  const firstName = authUser.firstName || 'Admin';
+  
+  const handleLogout = () => {
+    removeAuthToken();
+    localStorage.removeItem('authUser');
+    navigate('/login');
+  };
+
+  // ------------------- STATES -------------------
+  const [feedbacks, setFeedbacks] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedFields, setSelectedFields] = useState({
+    customer_id: true,
+    rating: true,
+    comments: true,
+    created_at: true,
+    feedback_id: true,
+  });
+
+  // Chart States
+  const [ratingCounts, setRatingCounts] = useState({
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+  });
+
+  // ------------------- COMPANY INFORMATION -------------------
+  const companyInfo = {
+    name: 'SelfMe',
+    tagline: 'FUTURE OF SUN - SOLAR POWER',
+    address: ['No/346, Madalanda, Dompe,', 'Colombo, Sri Lanka'],
+    phone: '+94 717 882 883',
+    email: 'Selfmepvtltd@gmail.com',
+    website: 'www.selfme.com',
+  };
+
+  // ------------------- DELETE FEEDBACK -------------------
+  const handleDeleteFeedback = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this feedback?')) return;
+    try {
+      await axios.delete(`${URL}/${id}`);
+      setFeedbacks(feedbacks.filter((r) => r._id !== id));
+      alert('Feedback deleted successfully!');
+    } catch (err) {
+      console.error('Error deleting feedback:', err);
+      alert('Failed to delete feedback!');
+    }
+  };
+
+  // ------------------- FETCH FEEDBACKS -------------------
+  const fetchFeedbacks = async () => {
+    try {
+      const res = await axios.get(URL);
+      const fetchedFeedbacks = res.data.feedbacks || [];
+      setFeedbacks(fetchedFeedbacks);
+
+      // Compute rating counts
+      const counts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+      fetchedFeedbacks.forEach((feedback) => {
+        if (feedback.rating) {
+          counts[feedback.rating] = (counts[feedback.rating] || 0) + 1;
+        }
+      });
+      setRatingCounts(counts);
+    } catch (err) {
+      console.error('Error fetching feedbacks:', err);
+      setFeedbacks([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchFeedbacks();
+  }, []);
+
+  // ------------------- LOGO CONVERSION -------------------
+  const getLogoAsBase64 = () => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        const base64 = canvas.toDataURL('image/png');
+        resolve(base64);
+      };
+      img.onerror = () => {
+        console.warn('Could not load logo, proceeding without it');
+        resolve(null);
+      };
+      img.src = '/newLogo.png';
+    });
+  };
+
+  // ------------------- OFFICIAL PDF GENERATION -------------------
+  const generatePDF = async (data, title) => {
+    if (!data.length) return alert('No feedbacks to download!');
+    try {
+      const logoBase64 = await getLogoAsBase64();
+      const doc = new jsPDF();
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
+
+      const addLetterhead = () => {
+        if (logoBase64) {
+          doc.addImage(logoBase64, 'PNG', 15, 10, 20, 20);
+        }
+        doc.setFont('times', 'bold');
+        doc.setFontSize(16);
+        doc.setTextColor(0, 0, 0);
+        doc.text(companyInfo.name, pageWidth / 2, 20, { align: 'center' });
+        doc.setFont('times', 'normal');
+        doc.setFontSize(10);
+        doc.text(companyInfo.address.join(', '), pageWidth / 2, 28, { align: 'center' });
+        doc.text(`Phone: ${companyInfo.phone} | Email: ${companyInfo.email} | Website: ${companyInfo.website}`, pageWidth / 2, 34, { align: 'center' });
+        doc.setLineWidth(0.5);
+        doc.setDrawColor(0, 0, 0);
+        doc.line(15, 40, pageWidth - 15, 40);
+      };
+
+      const addFooter = (pageNum, totalPages, lastRecordIdx) => {
+        doc.setFont('times', 'normal');
+        doc.setFontSize(8);
+        doc.setTextColor(50, 50, 50);
+        doc.setLineWidth(0.3);
+        doc.setDrawColor(150, 150, 150);
+        doc.line(15, pageHeight - 20, pageWidth - 15, pageHeight - 20);
+        const footerText = `Generated by ${companyInfo.name} Feedback Management System`;
+        doc.text(footerText, pageWidth / 2, pageHeight - 15, { align: 'center' });
+        const recordText = lastRecordIdx >= 0 ? `Feedback #${String(lastRecordIdx + 1).padStart(3, '0')}` : '';
+        doc.text(`Page ${pageNum} of ${totalPages} | ${recordText}`, pageWidth - 15, pageHeight - 10, { align: 'right' });
+        const genDate = new Date().toLocaleDateString('en-GB');
+        const genTime = new Date().toLocaleTimeString('en-GB', { hour12: false });
+        doc.text(`Generated on ${genDate} at ${genTime}`, 15, pageHeight - 10);
+      };
+
+      const addSignatureField = () => {
+        doc.setFont('times', 'normal');
+        doc.setFontSize(10);
+        doc.setTextColor(0, 0, 0);
+        doc.text('Authorized Signature: __________________', pageWidth - 85, pageHeight - 30);
+      };
+
+      let totalPages = 1;
+      let tempY = 50;
+      let lastRecordIdxPerPage = [];
+      let currentPageRecords = [];
+      
+      data.forEach((_, idx) => {
+        let fieldsCount = Object.keys(selectedFields).filter((field) => selectedFields[field]).length;
+        let itemHeight = fieldsCount * 10 + 20;
+        if (tempY + itemHeight > pageHeight - 40) {
+          totalPages++;
+          lastRecordIdxPerPage.push(currentPageRecords[currentPageRecords.length - 1] || -1);
+          currentPageRecords = [];
+          tempY = 50;
+        }
+        currentPageRecords.push(idx);
+        tempY += itemHeight;
+      });
+      lastRecordIdxPerPage.push(currentPageRecords[currentPageRecords.length - 1] || -1);
+
+      let currentPage = 1;
+      let y = 50;
+      addLetterhead();
+      doc.setFont('times', 'bold');
+      doc.setFontSize(14);
+      doc.setTextColor(0, 0, 0);
+      doc.text(title, pageWidth / 2, 45, { align: 'center' });
+
+      data.forEach((feedback, idx) => {
+        let fieldsCount = Object.keys(selectedFields).filter((field) => selectedFields[field]).length;
+        let itemHeight = fieldsCount * 10 + 20;
+        if (y + itemHeight > pageHeight - 40) {
+          addSignatureField();
+          addFooter(currentPage, totalPages, lastRecordIdxPerPage[currentPage - 1]);
+          doc.addPage();
+          currentPage++;
+          addLetterhead();
+          y = 50;
+        }
+        doc.setFont('times', 'bold');
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.text(`Feedback #${String(idx + 1).padStart(3, '0')}`, 15, y);
+        doc.setFont('times', 'normal');
+        doc.setFontSize(10);
+        doc.text(`Feedback ID: ${feedback.feedback_id || 'N/A'}`, pageWidth - 50, y);
+        y += 10;
+        doc.setLineWidth(0.3);
+        doc.setDrawColor(150, 150, 150);
+        doc.rect(15, y, pageWidth - 30, fieldsCount * 10 + 5, 'S');
+        y += 5;
+
+        Object.keys(selectedFields).forEach((field) => {
+          if (selectedFields[field]) {
+            let label = field.replace('_', ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+            let value = feedback[field] || 'N/A';
+            if (field === 'created_at') {
+              value = new Date(value).toLocaleDateString('en-GB');
+            }
+            if (typeof value === 'string' && value.length > 50) {
+              value = value.substring(0, 47) + '...';
+            }
+            doc.setFont('times', 'bold');
+            doc.text(`${label}:`, 20, y);
+            doc.setFont('times', 'normal');
+            doc.text(String(value), 60, y);
+            y += 10;
+          }
+        });
+        y += 5;
+        if (idx < data.length - 1) {
+          doc.setLineWidth(0.2);
+          doc.setDrawColor(200, 200, 200);
+          doc.line(15, y, pageWidth - 15, y);
+          y += 5;
+        }
+      });
+
+      addSignatureField();
+      addFooter(currentPage, totalPages, lastRecordIdxPerPage[currentPage - 1]);
+      
+      const timestamp = new Date().toISOString().split('T')[0];
+      const fileName = `${companyInfo.name}_${title.replace(/\s+/g, '_')}_${timestamp}.pdf`;
+      doc.save(fileName);
+      alert(`Official report "${fileName}" downloaded successfully!`);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert('Error generating PDF. Please try again.');
+    }
+  };
+
+  // ------------------- DOWNLOAD FUNCTIONS -------------------
+  const handleDownloadAll = () => generatePDF(feedbacks, 'Feedback Directory Report');
+  const handleDownloadSingle = (feedback) => generatePDF([feedback], `Feedback Report - ${feedback.feedback_id || 'Unnamed'}`);
+
+  // ------------------- FILTERED FEEDBACKS -------------------
+  const filteredFeedbacks = feedbacks.filter(
+    (feedback) =>
+      (String(feedback.customer_id) || '').includes(searchTerm) ||
+      (String(feedback.rating) || '').includes(searchTerm) ||
+      (feedback.comments?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+      (String(feedback.feedback_id) || '').includes(searchTerm)
+  );
+
+  // ------------------- RENDER -------------------
+  return (
+    <div className="all-feedback-container">
+      <Nav firstName={firstName} handleLogout={handleLogout} />
+      <div className="all-feedback-section">
+        <div className="title-container">
+          <h2 className="Title">Feedback Management System</h2>
+          <p className="subtitle">{companyInfo.name} - {companyInfo.tagline}</p>
+        </div>
+
+        <div className="chart-container">
+          <Pie data={{
+            labels: ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars'],
+            datasets: [{
+              label: 'Feedback Ratings',
+              data: [ratingCounts[1], ratingCounts[2], ratingCounts[3], ratingCounts[4], ratingCounts[5]],
+              backgroundColor: [
+                '#ff6384', // 1 Star - Red
+                '#ff9f40', // 2 Stars - Orange
+                '#ffcd56', // 3 Stars - Yellow
+                '#4bc0c0', // 4 Stars - Teal
+                '#36a2eb', // 5 Stars - Blue
+              ],
+              borderColor: [
+                '#ff6384',
+                '#ff9f40',
+                '#ffcd56',
+                '#4bc0c0',
+                '#36a2eb',
+              ],
+              borderWidth: 2,
+            }],
+          }} options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+                labels: {
+                  font: {
+                    size: 12,
+                    family: 'Poppins',
+                  },
+                  color: '#2e7d32',
+                },
+              },
+              title: {
+                display: true,
+                text: 'Feedback Ratings Distribution',
+                font: {
+                  size: 16,
+                  weight: 'bold',
+                  family: 'Poppins',
+                },
+                color: '#2e7d32',
+                padding: {
+                  top: 10,
+                  bottom: 20,
+                },
+              },
+              tooltip: {
+                backgroundColor: 'rgba(46, 125, 50, 0.8)',
+                titleColor: 'white',
+                bodyColor: 'white',
+                borderColor: '#81c784',
+                borderWidth: 1,
+                cornerRadius: 8,
+              },
+            },
+          }} />
+        </div>
+
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search by Feedback ID, Customer ID, Rating, Comments..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+
+        <div className="download-options professional-section">
+          <h3>Official Report Generation</h3>
+          <p>Select the fields to include in your official report:</p>
+          <div className="field-checkboxes">
+            {Object.keys(selectedFields).map((field) => (
+              <label key={field} className="checkbox-label">
+                <input
+                  type="checkbox"
+                  checked={selectedFields[field]}
+                  onChange={() =>
+                    setSelectedFields((prev) => ({ ...prev, [field]: !prev[field] }))
+                  }
+                />
+                <span>
+                  {field.replace('_', ' ').replace(/([A-Z])/g, ' $1').trim().replace(/\b\w/g, (l) => l.toUpperCase())}
+                </span>
+              </label>
+            ))}
+          </div>
+          <div className="download-buttons">
+            <button className="download-all-btn" onClick={handleDownloadAll}>
+              Download Directory ({feedbacks.length} feedbacks)
+            </button>
+            <p className="download-note">
+              Reports include official letterhead with {companyInfo.name} branding and contact details.
+            </p>
+          </div>
+        </div>
+
+        <div className="users-table-container">
+          <div className="table-header">
+            <span className="table-user-count">Total Feedbacks: {feedbacks.length}</span>
+            <span className="filtered-count">
+              {searchTerm && `(Showing ${filteredFeedbacks.length} filtered results)`}
+            </span>
+          </div>
+          <table className="users-table">
+            <thead>
+              <tr>
+                <th>Feedback ID</th>
+                <th>Customer ID</th>
+                <th>Rating</th>
+                <th>Comments</th>
+                <th>Created At</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredFeedbacks.map((feedback) => (
+                <tr key={feedback._id}>
+                  <td>{feedback.feedback_id || 'N/A'}</td>
+                  <td>{feedback.customer_id || 'N/A'}</td>
+                  <td>{feedback.rating || 'N/A'}</td>
+                  <td>{feedback.comments || 'N/A'}</td>
+                  <td>{new Date(feedback.created_at).toLocaleDateString('en-GB')}</td>
+                  <td className="actions-cell">
+                    <button
+                      className="action-btn delete-btn"
+                      onClick={() => handleDeleteFeedback(feedback._id)}
+                      title="Delete Feedback"
+                    >
+                    delete
+                    </button>
+                    <button
+                      className="action-btn download-btn"
+                      onClick={() => handleDownloadSingle(feedback)}
+                      title="Download Feedback Report"
+                    >
+                     download
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {filteredFeedbacks.length === 0 && (
+            <div className="no-users-message">
+              <p>No feedbacks found matching your search criteria.</p>
+              {searchTerm && (
+                <button className="clear-search-btn" onClick={() => setSearchTerm('')}>
+                  Clear Search
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default AllFeedback;

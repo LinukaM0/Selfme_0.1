@@ -1,0 +1,634 @@
+/* Updated AllFeedback.css with Chart Container Styling */
+
+/* Main Content Container */
+.all-feedback-section {
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #f8f8f8 100%);
+  min-height: 100vh;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 240px; /* Matches sidebar width from Nav.css */
+  transition: margin-left 0.3s ease;
+}
+
+/* Title Section */
+.all-feedback-section .title-container {
+  text-align: center;
+  margin: 20px 0 30px;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #2e7d32 0%, #81c784 50%, #66bb6a 100%);
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.4);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.all-feedback-section .title-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.all-feedback-section .Title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.all-feedback-section .subtitle {
+  font-size: 1rem;
+  margin: 10px 0 0;
+  opacity: 0.9;
+  font-style: italic;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Chart Container */
+.all-feedback-section .chart-container {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+  border: 2px solid rgba(129, 199, 132, 0.2);
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.all-feedback-section .chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2e7d32, #81c784, #66bb6a);
+}
+
+/* Add Feedback Toggle Button */
+.all-feedback-section .add-user-toggle {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.all-feedback-section .add-user-toggle:hover {
+  background: linear-gradient(135deg, #388e3c, #66bb6a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+.all-feedback-section .add-user-toggle:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
+}
+
+/* Form Container */
+.all-feedback-section .add-user-container {
+  background: linear-gradient(135deg, #ffffff, #f8f8f8);
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.all-feedback-section .add-user-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2e7d32, #4caf50);
+}
+
+.all-feedback-section .add-user-container h3 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.all-feedback-section .add-user-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.all-feedback-section .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.all-feedback-section .form-group input {
+  padding: 10px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.all-feedback-section .form-group input:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+  transform: translateY(-1px);
+}
+
+.all-feedback-section .form-group .error {
+  color: #d32f2f;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.all-feedback-section .form-group input[name="comments"] {
+  resize: vertical;
+  min-height: 50px;
+}
+
+.all-feedback-section .submit-btn {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  justify-self: center;
+  max-width: 220px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.all-feedback-section .submit-btn:hover {
+  background: linear-gradient(135deg, #388e3c, #66bb6a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+.all-feedback-section .submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
+}
+
+/* Search Bar */
+.all-feedback-section .search-bar {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-feedback-section .search-bar input {
+  width: 60%;
+  max-width: 500px;
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.all-feedback-section .search-bar input:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+  transform: translateY(-1px);
+}
+
+.all-feedback-section .search-bar input::placeholder {
+  color: #81c784;
+  font-weight: 500;
+}
+
+/* Download Section */
+.all-feedback-section .download-options {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.all-feedback-section .download-options::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2e7d32, #4caf50);
+}
+
+.all-feedback-section .download-options h3 {
+  color: #2e7d32;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.all-feedback-section .download-options p {
+  color: #4a5568;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.all-feedback-section .field-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.all-feedback-section .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.all-feedback-section .checkbox-label:hover {
+  background: #e8f5e8;
+  border-color: #4caf50;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(76, 175, 80, 0.15);
+}
+
+.all-feedback-section .checkbox-label input[type="checkbox"] {
+  margin: 0;
+  transform: scale(1.1);
+  accent-color: #2e7d32;
+}
+
+.all-feedback-section .checkbox-label input[type="checkbox"]:checked + span {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.all-feedback-section .checkbox-label span {
+  font-size: 0.9rem;
+  color: #4a5568;
+  transition: color 0.2s ease;
+}
+
+.all-feedback-section .download-buttons {
+  text-align: center;
+}
+
+.all-feedback-section .download-all-btn {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.all-feedback-section .download-all-btn:hover {
+  background: linear-gradient(135deg, #388e3c, #66bb6a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+.all-feedback-section .download-all-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
+}
+
+.all-feedback-section .download-note {
+  font-size: 0.85rem;
+  color: #4a5568;
+  font-style: italic;
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+/* Table */
+.all-feedback-section .users-table-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  border: 1px solid #e0e0e0;
+}
+
+.all-feedback-section .table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background: linear-gradient(135deg, #f8f8f8, #f5f5f5);
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.all-feedback-section .table-user-count {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.all-feedback-section .filtered-count {
+  font-size: 0.95rem;
+  color: #4a5568;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.all-feedback-section .users-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.all-feedback-section .users-table th {
+  background: linear-gradient(135deg, #2e7d32, #4caf50);
+  color: white;
+  padding: 15px 12px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-bottom: 2px solid #4caf50;
+}
+
+.all-feedback-section .users-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: middle;
+  transition: background-color 0.2s ease;
+}
+
+.all-feedback-section .users-table tbody tr:hover {
+  background-color: #e8f5e8;
+}
+
+.all-feedback-section .users-table tbody tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+/* Action Buttons */
+.all-feedback-section .actions-cell {
+  text-align: center;
+  white-space: nowrap;
+  padding: 8px !important;
+}
+
+.all-feedback-section .action-btn {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  border: none;
+  padding: 8px;
+  margin: 0 2px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+}
+
+.all-feedback-section .action-btn:hover {
+  background: linear-gradient(135deg, #388e3c, #66bb6a);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+.all-feedback-section .action-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
+}
+
+.all-feedback-section .delete-btn {
+  background: linear-gradient(135deg, #d32f2f, #f44336);
+}
+
+.all-feedback-section .delete-btn:hover {
+  background: linear-gradient(135deg, #b71c1c, #d32f2f);
+  border: none;
+}
+
+.all-feedback-section .download-btn {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+}
+
+.all-feedback-section .download-btn:hover {
+  background: linear-gradient(135deg, #0288d1, #29b6f6);
+  border: none;
+}
+
+/* No Feedbacks Message */
+.all-feedback-section .no-users-message {
+  text-align: center;
+  padding: 40px;
+  color: #4a5568;
+  background: linear-gradient(135deg, #f8f8f8, #f5f5f5);
+  margin: 20px;
+  border-radius: 12px;
+  border: 2px dashed #e0e0e0;
+}
+
+.all-feedback-section .no-users-message p {
+  font-size: 1.2rem;
+  margin: 0 0 15px;
+  font-weight: 500;
+}
+
+.all-feedback-section .clear-search-btn {
+  background: linear-gradient(135deg, #4a5568, #2e7d32);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.all-feedback-section .clear-search-btn:hover {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  transform: translateY(-2px);
+}
+
+.all-feedback-section .clear-search-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(46, 125, 50, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .all-feedback-section {
+    margin-left: 70px; /* Matches collapsed sidebar width from Nav.css */
+  }
+  .all-feedback-section .Title {
+    font-size: 2rem;
+  }
+  .all-feedback-section .subtitle {
+    font-size: 0.9rem;
+  }
+  .all-feedback-section .chart-container {
+    height: 250px;
+    padding: 15px;
+    border-radius: 12px;
+  }
+  .all-feedback-section .field-checkboxes {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .all-feedback-section .add-user-form {
+    grid-template-columns: 1fr;
+  }
+  .all-feedback-section .search-bar input {
+    width: 80%;
+  }
+  .all-feedback-section .table-header {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .all-feedback-section {
+    padding: 15px;
+    margin-left: 60px; /* Matches collapsed sidebar width from Nav.css */
+  }
+  .all-feedback-section .Title {
+    font-size: 1.8rem;
+  }
+  .all-feedback-section .subtitle {
+    font-size: 0.85rem;
+  }
+  .all-feedback-section .chart-container {
+    height: 200px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  .all-feedback-section .field-checkboxes {
+    grid-template-columns: 1fr;
+  }
+  .all-feedback-section .search-bar input {
+    width: 90%;
+  }
+  .all-feedback-section .users-table {
+    font-size: 0.8rem;
+  }
+  .all-feedback-section .users-table th,
+  .all-feedback-section .users-table td {
+    padding: 8px 6px;
+  }
+  .all-feedback-section .action-btn {
+    font-size: 0.85rem;
+    padding: 6px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+  .all-feedback-section .Title {
+    font-size: 1.6rem;
+  }
+  .all-feedback-section .chart-container {
+    height: 180px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .all-feedback-section .download-options,
+  .all-feedback-section .add-user-container {
+    padding: 15px;
+  }
+  .all-feedback-section .users-table {
+    font-size: 0.75rem;
+  }
+  .all-feedback-section .users-table th,
+  .all-feedback-section .users-table td {
+    padding: 6px 4px;
+  }
+  .all-feedback-section .action-btn {
+    width: 90px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .all-feedback-section .add-user-toggle,
+  .all-feedback-section .download-options,
+  .all-feedback-section .search-bar,
+  .all-feedback-section .action-btn,
+  .all-feedback-section .add-user-container,
+  .all-feedback-section .chart-container {
+    display: none !important;
+  }
+  .all-feedback-section {
+    background: white;
+    margin-left: 0 !important;
+  }
+  .all-feedback-section .title-container {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  .all-feedback-section .users-table th {
+    background: #f8f8f8 !important;
+    color: black !important;
+  }
+}

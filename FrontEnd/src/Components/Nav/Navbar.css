@@ -1,0 +1,261 @@
+/* Navbar.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+#selfmeNavbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: #f1f8e9; /* Softer light green background */
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.15);
+  position: sticky;
+  top: 25px;
+  z-index: 100;
+  font-family: "Poppins", sans-serif;
+  border-radius: 35px 35px 35px 35px; /* Curved bottom edges */
+  margin: 0 1rem; /* Creates space for curved effect */
+  border-bottom: 3px solid #e8f5e9; /* Subtle accent border */
+}
+
+#selfmeNavbarLogo {
+  color: #1b5e20; /* Deeper green for better contrast */
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: -0.5px;
+  font-family: "Poppins", sans-serif;
+}
+
+#selfmeNavbarLogo:hover {
+  color: #2e7d32;
+  transform: scale(1.02);
+}
+
+#selfmeNavbarContainer a {
+  color: #33691e; /* Earthy green */
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 1rem;
+  padding: 0.6rem 0;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#selfmeNavbarContainer a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #43a047; /* Vibrant green */
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+#selfmeNavbarContainer a:hover {
+  color: #1b5e20;
+}
+
+#selfmeNavbarContainer a:hover::after {
+  width: 100%;
+}
+
+#selfmeNavbarContainer a:last-child {
+  background: linear-gradient(135deg, #e80909, #b91616); /* Gradient effect */
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px; /* Pill shape */
+  transition: all 0.4s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(76, 175, 80, 0.3);
+  margin-left: 1.5rem;
+}
+
+#selfmeNavbarContainer a:last-child:hover {
+  background: linear-gradient(135deg, #af0202, #ab3333);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(56, 142, 60, 0.4);
+}
+
+#selfmeNavbarContainer a:last-child::after {
+  display: none;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  #selfmeNavbarContainer {
+    padding: 1rem 2rem;
+    border-radius: 0 0 20px 20px;
+  }
+
+  #selfmeNavbarContainer a {
+    font-size: 1rem;
+    margin: 0 0.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #selfmeNavbarContainer {
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 0 0 25px 25px;
+  }
+
+  #selfmeNavbarLogo {
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+  }
+
+  #selfmeNavbarContainer a {
+    margin: 0.6rem 0;
+    padding: 0.5rem 1rem;
+  }
+
+  #selfmeNavbarContainer a:last-child {
+    margin-top: 0.8rem;
+    margin-left: 0;
+  }
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+#selfmeNavbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: #f1f8e9; /* Softer light green background */
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.15);
+  position: sticky;
+  top: 25px;
+  z-index: 100;
+  font-family: "Poppins", sans-serif;
+  border-radius: 35px 35px 35px 35px; /* Curved bottom edges */
+  margin: 0 1rem; /* Creates space for curved effect */
+  border-bottom: 3px solid #e8f5e9; /* Subtle accent border */
+}
+
+#selfmeNavbarLogo {
+  color: #1b5e20; /* Deeper green for better contrast */
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: -0.5px;
+  font-family: "Poppins", sans-serif;
+}
+
+#selfmeNavbarLogo:hover {
+  color: #2e7d32;
+  transform: scale(1.02);
+}
+
+#selfmeNavbarContainer a {
+  color: #33691e; /* Earthy green */
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 1rem;
+  padding: 0.6rem 0;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#selfmeNavbarContainer a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #43a047; /* Vibrant green */
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+#selfmeNavbarContainer a:hover {
+  color: #1b5e20;
+}
+
+#selfmeNavbarContainer a:hover::after {
+  width: 100%;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-name {
+  color: #33691e;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #e80909, #b91616); /* Gradient effect */
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px; /* Pill shape */
+  transition: all 0.4s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(76, 175, 80, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #af0202, #ab3333);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(56, 142, 60, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  #selfmeNavbarContainer {
+    padding: 1rem 2rem;
+    border-radius: 0 0 20px 20px;
+  }
+
+  #selfmeNavbarContainer a {
+    font-size: 1rem;
+    margin: 0 0.7rem;
+  }
+
+  .user-info {
+    gap: 0.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #selfmeNavbarContainer {
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 0 0 25px 25px;
+  }
+
+  #selfmeNavbarLogo {
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+  }
+
+  #selfmeNavbarContainer a {
+    margin: 0.6rem 0;
+    padding: 0.5rem 1rem;
+  }
+
+  .user-info {
+    margin-top: 0.8rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logout-btn {
+    margin-top: 0.5rem;
+  }
+}

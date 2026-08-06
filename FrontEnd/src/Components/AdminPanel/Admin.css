@@ -1,0 +1,591 @@
+/* Updated admin.css with Smaller, More Designed Chart Container Styling */
+
+/* Main Container */
+.admin .home-container {
+  font-family: 'poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Sidebar Container */
+.admin .sidebar {
+  width: 195px;
+  background: linear-gradient(180deg, #2e7d32 0%, #81c784 50%, #66bb6a 100%);
+  color: white;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* Sidebar Header */
+.admin .sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.admin .sidebar-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.admin .sidebar-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+}
+
+.admin .sidebar-subtitle {
+  font-size: 0.75rem;
+  color: #a8e6cf;
+  margin: 0;
+}
+
+.admin .sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  transition: all 0.3s ease;
+}
+
+.admin .sidebar-toggle:hover {
+  transform: rotate(90deg);
+}
+
+/* Sidebar Menu */
+.admin .sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  flex-grow: 1;
+}
+
+.admin .sidebar-menu li {
+  margin-bottom: 10px;
+}
+
+.admin .sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  color: #a8e6cf;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 100;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.admin .sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.admin .sidebar-link.active {
+  background: linear-gradient(135deg, #66bb6a, #81c784);
+  color: #1b5e20;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(102, 187, 106, 0.4);
+}
+
+.admin .sidebar-link .icon {
+  font-size: 1.3rem;
+}
+
+.admin .sidebar-link .text {
+  flex-grow: 1;
+}
+
+/* Sidebar User Info */
+.admin .sidebar-user-info {
+  padding: 15px 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin .sidebar-user-info .user-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Logout Button */
+.admin .logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #d90000, #ff0000);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.admin .logout-btn:hover {
+  background: linear-gradient(135deg, #a81919, #d20a0a);
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
+}
+
+.admin .logout-btn .icon {
+  font-size: 1.3rem;
+}
+
+.admin .logout-btn .text {
+  flex-grow: 1;
+}
+
+/* Sidebar Footer */
+.admin .sidebar-footer {
+  padding: 15px 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.admin .sidebar-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #a8e6cf;
+  font-weight: 300;
+}
+
+/* Main Content Area */
+.admin .main-content {
+  margin-left: 230px;
+  padding: 30px;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+/* Dashboard Styling */
+.admin .dashboard {
+  padding: 20px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.admin .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(102, 187, 106, 0.2);
+}
+
+.admin .dashboard-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #080808;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.admin .dashboard-subtitle {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* User Info and Logout Button (Dashboard Header) */
+.admin .user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.admin .user-info .user-name {
+  font-size: 0.875rem;
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+/* Chart Container - Smaller and More Designed */
+.admin .chart-container {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+  border: 2px solid rgba(129, 199, 132, 0.2);
+  width: 100%;
+  height: 300px; /* Smaller height */
+  position: relative;
+  overflow: hidden;
+}
+
+.admin .chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2e7d32, #81c784, #66bb6a);
+}
+
+/* Card Grid Layout */
+.admin .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 20px;
+}
+
+/* Individual Card Styling */
+.admin .card {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.admin .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2e7d32, #81c784);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.admin .card:hover::before {
+  transform: scaleX(1);
+}
+
+.admin .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(102, 187, 106, 0.4);
+  border: 2px solid #81c784;
+}
+
+.admin .card h2 {
+  font-size: 1.375rem;
+  margin-bottom: 12px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.admin .card p {
+  font-size: 0.875rem;
+  color: #4a5568;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Link Styling for Cards */
+.admin .card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.admin .card a:hover,
+.admin .card a:active,
+.admin .card a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.admin .card a.active {
+  background: linear-gradient(135deg, #66bb6a, #81c784);
+  color: #1b5e20;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin .sidebar {
+    width: 70px;
+    padding: 10px;
+  }
+
+  .admin .sidebar.open {
+    width: 250px;
+  }
+
+  .admin .sidebar-title,
+  .admin .sidebar-subtitle,
+  .admin .sidebar-link .text,
+  .admin .sidebar-user-info .user-name,
+  .admin .logout-btn .text,
+  .admin .sidebar-footer {
+    display: none;
+  }
+
+  .admin .sidebar.open .sidebar-title,
+  .admin .sidebar.open .sidebar-subtitle,
+  .admin .sidebar.open .sidebar-link .text,
+  .admin .sidebar.open .sidebar-user-info .user-name,
+  .admin .sidebar.open .logout-btn .text,
+  .admin .sidebar.open .sidebar-footer {
+    display: block;
+  }
+
+  .admin .sidebar-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .admin .sidebar-toggle {
+    display: block;
+  }
+
+  .admin .sidebar-link,
+  .admin .logout-btn {
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .admin .sidebar.open .sidebar-link,
+  .admin .sidebar.open .logout-btn {
+    justify-content: flex-start;
+    padding: 15px 20px;
+  }
+
+  .admin .sidebar-link .icon,
+  .admin .logout-btn .icon {
+    font-size: 1.5rem;
+  }
+
+  .admin .sidebar-user-info {
+    align-items: center;
+  }
+
+  .admin .logout-btn {
+    width: auto;
+    padding: 10px;
+  }
+
+  .admin .sidebar.open .logout-btn {
+    width: 100%;
+  }
+
+  .admin .main-content {
+    margin-left: 90px;
+    padding: 15px;
+  }
+
+  .admin .sidebar.open + .main-content {
+    margin-left: 270px;
+  }
+
+  .admin .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin .user-info {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .admin .dashboard-title {
+    font-size: 1.5rem;
+  }
+
+  .admin .dashboard-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .admin .chart-container {
+    height: 250px;
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .admin .card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 15px;
+  }
+
+  .admin .card {
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .admin .card h2 {
+    font-size: 1.25rem;
+  }
+
+  .admin .card p {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin .logout-btn {
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+
+  .admin .dashboard-title {
+    font-size: 1.5rem;
+  }
+
+  .admin .dashboard-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .admin .chart-container {
+    height: 200px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .admin .card-grid {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .admin .card {
+    padding: 15px;
+  }
+
+  .admin .card h2 {
+    font-size: 1.125rem;
+  }
+
+  .admin .card p {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin .sidebar {
+    width: 60px;
+  }
+
+  .admin .sidebar.open {
+    width: 220px;
+  }
+
+  .admin .sidebar-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .admin .sidebar-link,
+  .admin .logout-btn {
+    padding: 8px;
+  }
+
+  .admin .sidebar.open .sidebar-link,
+  .admin .sidebar.open .logout-btn {
+    padding: 12px 15px;
+  }
+
+  .admin .main-content {
+    margin-left: 80px;
+  }
+
+  .admin .sidebar.open + .main-content {
+    margin-left: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin .main-content {
+    padding: 10px;
+  }
+
+  .admin .dashboard-header {
+    margin-bottom: 20px;
+  }
+
+  .admin .dashboard-title {
+    font-size: 1.5rem;
+  }
+
+  .admin .chart-container {
+    height: 180px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .admin .card-grid {
+    padding: 8px;
+  }
+
+  .admin .card {
+    padding: 16px;
+  }
+
+  .admin .card h2 {
+    font-size: 1.125rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .admin .sidebar {
+    display: none !important;
+  }
+
+  .admin .main-content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  .admin .chart-container {
+    display: none !important;
+  }
+}

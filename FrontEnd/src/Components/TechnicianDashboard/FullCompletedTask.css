@@ -1,0 +1,418 @@
+/* FullCompletedTask.css */
+#fullCompletedTasks {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#fullCompletedTasks::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(40, 167, 69, 0.2) 0%, rgba(26, 60, 94, 0.1) 70%);
+  animation: float 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#fullCompletedTasks .animate-slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+#fullCompletedTasks .animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+#fullCompletedTasks .animate-spin-slow {
+  animation: spinSlow 1.5s linear infinite;
+}
+
+#fullCompletedTasks .animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#fullCompletedTasks .employee-form input {
+  transition: all 0.3s ease;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+#fullCompletedTasks .employee-form input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 60, 52, 0.3);
+  border-color: #1a3c5e;
+}
+
+#fullCompletedTasks .cta-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #28a745;
+  color: #fff;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+#fullCompletedTasks .cta-button:hover {
+  transform: translateY(-2px);
+  background-color: #218838;
+}
+
+#fullCompletedTasks .cta-button.primary {
+  background-color: #28a745;
+  color: #fff;
+}
+
+#fullCompletedTasks .cta-button.primary:hover {
+  background-color: #218838;
+}
+
+#fullCompletedTasks .download-btn {
+  padding: 8px 15px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+#fullCompletedTasks .download-btn:hover {
+  transform: translateY(-2px);
+  background-color: #218838;
+}
+
+#fullCompletedTasks .dashboard-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1a3c5e;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #1a3c5e, #28a745);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  z-index: 1;
+}
+
+#fullCompletedTasks .search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+#fullCompletedTasks .search-box {
+  flex: 1;
+}
+
+#fullCompletedTasks .search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#fullCompletedTasks .download-options {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  text-align: center;
+}
+
+#fullCompletedTasks .download-header {
+  margin-bottom: 15px;
+}
+
+#fullCompletedTasks .download-options-title {
+  color: #1a3c5e;
+  font-size: 1.2rem;
+  margin: 0;
+  display: inline-block;
+}
+
+#fullCompletedTasks .download-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#fullCompletedTasks .download-note {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+  max-width: 300px;
+}
+
+#fullCompletedTasks .completed-tasks-list {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+#fullCompletedTasks .tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e7ff;
+}
+
+#fullCompletedTasks .tasks-header h3 {
+  color: #32824a;
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+#fullCompletedTasks .total-tasks-right {
+  color: #1a3c5e;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #28a745, #1a3c5e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#fullCompletedTasks .table-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+#fullCompletedTasks .filtered-count {
+  font-size: 0.9rem;
+  color: #333;
+  background-color: rgba(40, 167, 69, 0.2);
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+#fullCompletedTasks .orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#fullCompletedTasks .orders-table th,
+#fullCompletedTasks .orders-table td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid #e0e0e0;
+}
+
+#fullCompletedTasks .orders-table th {
+  background-color: #28a745;
+  color: #fff;
+  font-weight: bold;
+}
+
+#fullCompletedTasks .task-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#fullCompletedTasks .task-row:hover {
+  background-color: #e8f5e9;
+  transition: background-color 0.3s ease;
+}
+
+#fullCompletedTasks .loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+#fullCompletedTasks .spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #28a745;
+  border-top: 5px solid #1a3c5e;
+  border-radius: 50%;
+}
+
+#fullCompletedTasks .loading-text {
+  color: #666;
+  font-style: italic;
+}
+
+#fullCompletedTasks .empty-state {
+  text-align: center;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+  animation: pulse 2s infinite;
+}
+
+#fullCompletedTasks .empty-state h3 {
+  color: #1a3c5e;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+#fullCompletedTasks .empty-message {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+#fullCompletedTasks .empty-animation {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  background: radial-gradient(circle, #28a745, #1a3c5e);
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite, rotate 6s linear infinite;
+}
+
+#fullCompletedTasks .no-tasks-message {
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  #fullCompletedTasks {
+    padding: 15px;
+  }
+  #fullCompletedTasks .dashboard-title {
+    font-size: 1.5rem;
+  }
+  #fullCompletedTasks .tasks-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  #fullCompletedTasks .total-tasks-right {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 600px) {
+  #fullCompletedTasks {
+    padding: 10px;
+  }
+  #fullCompletedTasks .cta-button,
+  #fullCompletedTasks .download-btn {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+  #fullCompletedTasks .search-filter-container,
+  #fullCompletedTasks .download-options {
+    flex-direction: column;
+  }
+  #fullCompletedTasks .orders-table th,
+  #fullCompletedTasks .orders-table td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  #fullCompletedTasks .dashboard-title {
+    font-size: 1.2rem;
+  }
+  #fullCompletedTasks .download-content {
+    gap: 15px;
+  }
+}

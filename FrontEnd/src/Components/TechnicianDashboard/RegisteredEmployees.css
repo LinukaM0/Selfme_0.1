@@ -1,0 +1,334 @@
+/* RegisteredEmployees.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+#registeredEmployeesDashboard {
+  padding: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1C2526;
+  background: linear-gradient(135deg, #F5F6F5 0%, #E8ECEF 100%);
+  border-radius: 12px;
+  min-height: 100vh;
+}
+
+/* Heading */
+#registeredEmployeesDashboard h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1A3C34;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+/* Table styles */
+#registeredEmployeesDashboard .orders-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#registeredEmployeesDashboard .orders-table th,
+#registeredEmployeesDashboard .orders-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #D1D5DB;
+  border-right: 1px solid #D1D5DB;
+  font-size: 0.95rem;
+}
+
+/* Remove right border for last column */
+#registeredEmployeesDashboard .orders-table th:last-child,
+#registeredEmployeesDashboard .orders-table td:last-child {
+  border-right: none;
+}
+
+/* Remove bottom border for last row */
+#registeredEmployeesDashboard .orders-table tr:last-child td {
+  border-bottom: none;
+}
+
+#registeredEmployeesDashboard .orders-table th {
+  background: linear-gradient(90deg, #3CB371 0%, #66CDAA 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#registeredEmployeesDashboard .orders-table tr {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#registeredEmployeesDashboard .orders-table tr:nth-child(even) {
+  background-color: #F8FAFC;
+}
+
+#registeredEmployeesDashboard .orders-table tr:hover {
+  background-color: #E6F3EA;
+  transform: translateY(-2px);
+}
+
+/* Button styles */
+#registeredEmployeesDashboard .cta-button {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 8px;
+}
+
+#registeredEmployeesDashboard .cta-button.primary {
+  background: linear-gradient(90deg, #3CB371 0%, #66CDAA 100%);
+  color: #FFFFFF;
+}
+
+#registeredEmployeesDashboard .cta-button.primary:hover {
+  background: linear-gradient(90deg, #2E8B57 0%, #3CB371 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+#registeredEmployeesDashboard .cta-button:not(.primary) {
+  background-color: #FF4C4C;
+  color: #FFFFFF;
+}
+
+#registeredEmployeesDashboard .cta-button:not(.primary):hover {
+  background-color: #E63939;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Success and error messages */
+#registeredEmployeesDashboard .success-msg {
+  font-size: 1rem;
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #28A745 0%, #34C759 100%);
+  padding: 12px;
+  border-radius: 8px;
+  margin: 16px 0;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+#registeredEmployeesDashboard .error-msg {
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #FF4C4C 0%, #E63939 100%);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 8px 0;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Modal overlay and content */
+#registeredEmployeesDashboard .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+#registeredEmployeesDashboard .modal-content {
+  background-color: #FFFFFF;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 550px;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: slideIn 0.3s ease;
+}
+
+#registeredEmployeesDashboard .modal-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1A3C34;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Form styles within modal */
+#registeredEmployeesDashboard .employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#registeredEmployeesDashboard .employee-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+#registeredEmployeesDashboard .employee-form label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1A3C34;
+  margin-bottom: 8px;
+}
+
+#registeredEmployeesDashboard .employee-form input[type="text"],
+#registeredEmployeesDashboard .employee-form input[type="date"],
+#registeredEmployeesDashboard .employee-form select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  background-color: #F8FAFC;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#registeredEmployeesDashboard .employee-form input[type="text"]:focus,
+#registeredEmployeesDashboard .employee-form input[type="date"]:focus,
+#registeredEmployeesDashboard .employee-form select:focus {
+  border-color: #2E8B57;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #registeredEmployeesDashboard {
+    padding: 16px;
+  }
+
+  #registeredEmployeesDashboard h2 {
+    font-size: 1.5rem;
+  }
+
+  #registeredEmployeesDashboard .orders-table th,
+  #registeredEmployeesDashboard .orders-table td {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  #registeredEmployeesDashboard .modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+}
+
+@media (max-width: 600px) {
+  #registeredEmployeesDashboard .orders-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  #registeredEmployeesDashboard .cta-button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  #registeredEmployeesDashboard .modal-content {
+    padding: 16px;
+  }
+
+  #registeredEmployeesDashboard .employee-form input[type="text"],
+  #registeredEmployeesDashboard .employee-form input[type="date"],
+  #registeredEmployeesDashboard .employee-form select {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  #registeredEmployeesDashboard {
+    background: linear-gradient(135deg, #1C2526 0%, #2D3B3C 100%);
+    color: #E8ECEF;
+  }
+
+  #registeredEmployeesDashboard h2 {
+    color: #E8ECEF;
+  }
+
+  #registeredEmployeesDashboard .orders-table {
+    background-color: #2D3B3C;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  #registeredEmployeesDashboard .orders-table th,
+  #registeredEmployeesDashboard .orders-table td {
+    border-bottom: 1px solid #4B5EAA;
+    border-right: 1px solid #4B5EAA;
+  }
+
+  #registeredEmployeesDashboard .orders-table th:last-child,
+  #registeredEmployeesDashboard .orders-table td:last-child {
+    border-right: none;
+  }
+
+  #registeredEmployeesDashboard .orders-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  #registeredEmployeesDashboard .orders-table th {
+    background: linear-gradient(90deg, #3CB371 0%, #66CDAA 100%);
+  }
+
+  #registeredEmployeesDashboard .orders-table tr:nth-child(even) {
+    background-color: #374151;
+  }
+
+  #registeredEmployeesDashboard .orders-table tr:hover {
+    background-color: #4B5EAA;
+  }
+
+  #registeredEmployeesDashboard .modal-content {
+    background-color: #2D3B3C;
+    color: #E8ECEF;
+  }
+
+  #registeredEmployeesDashboard .employee-form input[type="text"],
+  #registeredEmployeesDashboard .employee-form input[type="date"],
+  #registeredEmployeesDashboard .employee-form select {
+    background-color: #374151;
+    border-color: #4B5EAA;
+    color: #E8ECEF;
+  }
+
+  #registeredEmployeesDashboard .employee-form input[type="text"]:focus,
+  #registeredEmployeesDashboard .employee-form input[type="date"]:focus,
+  #registeredEmployeesDashboard .employee-form select:focus {
+    border-color: #2E8B57;
+    background-color: #1C2526;
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+  }
+
+  #registeredEmployeesDashboard .employee-form label {
+    color: #E8ECEF;
+  }
+}
